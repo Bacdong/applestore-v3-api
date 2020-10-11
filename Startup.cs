@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using applestore.Data.EF;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -25,7 +27,7 @@ namespace applestore
         {
             services.AddControllersWithViews();
             services.AddMvc();
-            services.AddEntityFrameworkNpgsql().AddDbContext<AppleContext>(opt =>
+            services.AddEntityFrameworkNpgsql().AddDbContext<AppleDbContext>(opt =>
                 opt.UseNpgsql(Configuration.GetConnectionString("AppleStoreConnection")));
         }
 
