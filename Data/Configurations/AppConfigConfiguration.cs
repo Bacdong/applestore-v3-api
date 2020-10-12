@@ -10,7 +10,8 @@ namespace applestore.Data.Configurations {
         public void Configure(EntityTypeBuilder<AppConfig> builder) {
             builder.ToTable("AppConfigs");
 
-            builder.HasKey(x => x.key);
+            builder.HasKey(x => x.id);
+            builder.Property(x => x.key).IsRequired();
             builder.Property(x => x.value).IsRequired();
         }
     }

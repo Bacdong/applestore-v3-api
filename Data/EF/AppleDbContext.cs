@@ -4,12 +4,14 @@ using System.Text;
 using Microsoft.EntityFrameworkCore;
 using applestore.Data.Entity;
 using applestore.Data.Configurations;
+using applestore.Data.Extensions;
 
 namespace applestore.Data.EF {
     public class AppleDbContext : DbContext {
         public AppleDbContext(DbContextOptions options) : base(options) {}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
+            // Configurations database using Fluent API
             modelBuilder.ApplyConfiguration(new AppConfigConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
@@ -23,6 +25,9 @@ namespace applestore.Data.EF {
             modelBuilder.ApplyConfiguration(new ProductTranslationConfiguration());
             modelBuilder.ApplyConfiguration(new PromotionConfiguration());
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
+
+            // Seeding data for database
+            modelBuilder.Seed();
             
             // base.OnModelCreating(modelBuilder);
         } 

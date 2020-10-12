@@ -39,12 +39,6 @@ dotnet tool install --global dotnet-ef
 dotnet ef migrations add <migration_name> -o "Data/Migrations"
 `
 
-- Migrations all:
-
-`
-dotnet ef migrations add . -o "Data/Migrations"
-`
-
 ### Update Database ###
 
 `
