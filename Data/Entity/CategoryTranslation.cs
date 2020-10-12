@@ -9,7 +9,7 @@ namespace applestore.Data.Entity {
         public string name {get; set;}
         public string brief {get; set;}
         public string title {get; set;}
-        public string languageId {get; set;}
+        public int languageId {get; set;}
         public string seoAlias {get; set;}
 
         public Category category {get; set;}

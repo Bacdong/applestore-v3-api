@@ -13,5 +13,6 @@ namespace applestore.Data.Entity {
 
         public List<ProductInCategory> productInCategories {get; set;}
 
+        public List<CategoryTranslation> categoryTranslations {get; set;}
     }
 }

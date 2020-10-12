@@ -27,8 +27,8 @@ namespace applestore
         {
             services.AddControllersWithViews();
             services.AddMvc();
-            services.AddEntityFrameworkNpgsql().AddDbContext<AppleDbContext>(opt =>
-                opt.UseNpgsql(Configuration.GetConnectionString("AppleStoreConnection")));
+            // services.AddEntityFrameworkNpgsql().AddDbContext<AppleDbContext>(opt =>
+            //     opt.UseNpgsql(Configuration.GetConnectionString("AppleStoreConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

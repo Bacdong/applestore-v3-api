@@ -8,7 +8,7 @@ namespace applestore.Data.Entity {
         public string name {get; set;}
         public bool isDefault {get; set;}
 
-        public List<CategoryTranslation> CategoryTranslation {get; set;}
-        public List<ProductTranslation> ProductTranslation {get; set;}
+        public List<CategoryTranslation> categoryTranslations {get; set;}
+        public List<ProductTranslation> productTranslations {get; set;}
     }
 }

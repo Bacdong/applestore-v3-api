@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "3FEjNUO+xMbsgrX9lFmBIRIFbHsqylJhb50b5rcKhE5Rh45gSQVST5lZb0I8pKwyLcgjwgFy6L2eqyJqevcrgQ==",
+  "dgSpecHash": "p7fSMMmZ1Bses3eHaJqgp0DfDIdkPI9ElL2KXSP1kHx78In1gRI0vsg0lY6JmZEv9IRhhG8nmUyisfM31noQlw==",
   "success": true,
   "projectFilePath": "/home/bacdong/Code/project/applestore/applestore.csproj",
   "expectedPackageFiles": [
@@ -18,8 +18,13 @@
     "/home/bacdong/.nuget/packages/microsoft.extensions.configuration/3.1.8/microsoft.extensions.configuration.3.1.8.nupkg.sha512",
     "/home/bacdong/.nuget/packages/microsoft.extensions.configuration.abstractions/3.1.8/microsoft.extensions.configuration.abstractions.3.1.8.nupkg.sha512",
     "/home/bacdong/.nuget/packages/microsoft.extensions.configuration.binder/3.1.8/microsoft.extensions.configuration.binder.3.1.8.nupkg.sha512",
+    "/home/bacdong/.nuget/packages/microsoft.extensions.configuration.fileextensions/3.1.8/microsoft.extensions.configuration.fileextensions.3.1.8.nupkg.sha512",
+    "/home/bacdong/.nuget/packages/microsoft.extensions.configuration.json/3.1.8/microsoft.extensions.configuration.json.3.1.8.nupkg.sha512",
     "/home/bacdong/.nuget/packages/microsoft.extensions.dependencyinjection/3.1.8/microsoft.extensions.dependencyinjection.3.1.8.nupkg.sha512",
     "/home/bacdong/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/3.1.8/microsoft.extensions.dependencyinjection.abstractions.3.1.8.nupkg.sha512",
+    "/home/bacdong/.nuget/packages/microsoft.extensions.fileproviders.abstractions/3.1.8/microsoft.extensions.fileproviders.abstractions.3.1.8.nupkg.sha512",
+    "/home/bacdong/.nuget/packages/microsoft.extensions.fileproviders.physical/3.1.8/microsoft.extensions.fileproviders.physical.3.1.8.nupkg.sha512",
+    "/home/bacdong/.nuget/packages/microsoft.extensions.filesystemglobbing/3.1.8/microsoft.extensions.filesystemglobbing.3.1.8.nupkg.sha512",
     "/home/bacdong/.nuget/packages/microsoft.extensions.logging/3.1.8/microsoft.extensions.logging.3.1.8.nupkg.sha512",
     "/home/bacdong/.nuget/packages/microsoft.extensions.logging.abstractions/3.1.8/microsoft.extensions.logging.abstractions.3.1.8.nupkg.sha512",
     "/home/bacdong/.nuget/packages/microsoft.extensions.options/3.1.8/microsoft.extensions.options.3.1.8.nupkg.sha512",

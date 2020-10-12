@@ -17,5 +17,7 @@ namespace applestore.Data.Entity {
         public List<OrderLine> orderLines {get; set;}
 
         public List <Cart> carts {get; set;}
+
+        public List<ProductTranslation> productTranslations {get; set;}
     }
 }
