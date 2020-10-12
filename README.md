@@ -50,3 +50,18 @@ dotnet ef migrations add . -o "Data/Migrations"
 `
 dotnet ef database update
 `
+
+
+### Push a commit code to source code management ###
+
+- Step 1: (push to Github)
+
+`
+git push -u origin master
+`
+
+- Step 2: (push to Gitlab)
+
+`
+git push -u Main master
+`
