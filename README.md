@@ -53,14 +53,25 @@ dotnet ef database update
 
 
 ### Push a commit code to source code management ###
+- Step 1: 
 
-- Step 1: (push to Github)
+`
+git add .
+`
+
+- Step 2:
+
+`
+git commit -m "<commit_message>"
+`
+
+- Step 3: (push to Github)
 
 `
 git push -u origin master
 `
 
-- Step 2: (push to Gitlab)
+- Step 4: (push to Gitlab)
 
 `
 git push -u Main master
