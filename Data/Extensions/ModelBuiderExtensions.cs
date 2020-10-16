@@ -132,6 +132,7 @@ namespace applestore.Data.Extensions {
             modelBuilder.Entity<ProductTranslation>().HasData(
                 new ProductTranslation() {
                     id=1,
+                    productId=1,
                     name="iPhone 11 Pro Max",
                     brief="Smartphone Apple",
                     title="Smartphone Apple",
@@ -140,6 +141,7 @@ namespace applestore.Data.Extensions {
 
                 new ProductTranslation() {
                     id=2,
+                    productId=1,
                     name="iPhone 11 Pro Max",
                     brief="Điện thoại thông minh Apple",
                     title="Điện thoại thông minh Apple",
