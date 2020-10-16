@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using applestore.Data.Entity;
 using applestore.Data.Enum;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace applestore.Data.Extensions {
@@ -150,6 +151,38 @@ namespace applestore.Data.Extensions {
         
             modelBuilder.Entity<ProductInCategory>().HasData(
                 new ProductInCategory() {productId=1, categoryId=1, } 
+            );
+
+            var ROLE_ID = new Guid("8D04DCE2-969A-435D-BBA4-DF3F325983DC");
+            var ADMIN_ID = new Guid("69BD714F-9576-45BA-B5B7-F00649BE00DE");
+            modelBuilder.Entity<AuthRole>().HasData(
+                new AuthRole {
+                    Id = ROLE_ID,
+                    Name = "admin",
+                    NormalizedName = "admin",
+                    brief = "Administrator role", }
+            );
+
+            var hasher = new PasswordHasher<Auth>();
+            modelBuilder.Entity<Auth>().HasData(
+                new Auth {
+                Id = ADMIN_ID,
+                UserName = "admin",
+                NormalizedUserName = "admin",
+                Email = "duongdong2203@gmail.com",
+                NormalizedEmail = "duongdong2203@gmail.com",
+                EmailConfirmed = true,
+                PasswordHash = hasher.HashPassword(null, "Abc123456!"),
+                SecurityStamp = string.Empty,
+                firstName = "Bac Dong",
+                lastName = "Duong",
+                address = "Hem 566/137 Nguyen Thai Son, Phuong 10, Quan Go Vap, TP. HCM", }
+            );
+
+            modelBuilder.Entity<IdentityUserRole<Guid>>().HasData(
+                new IdentityUserRole<Guid> {
+                    RoleId = ROLE_ID,
+                    UserId = ADMIN_ID, }
             );
         }
     }

@@ -11,6 +11,9 @@ namespace applestore.Data.Configurations {
 
             builder.HasKey(x => x.id);
             builder.Property(x => x.id).UseIdentityColumn();
+            builder.HasOne(x => x.auth)
+                .WithMany(x => x.transactions)
+                .HasForeignKey(x => x.userId);
         }
     }
 }

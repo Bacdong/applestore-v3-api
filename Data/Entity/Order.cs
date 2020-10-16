@@ -15,5 +15,7 @@ namespace applestore.Data.Entity {
         public OrderStatus status {get; set;}
 
         public List<OrderLine> orderLines {get; set;}
+
+        public Auth auth {get; set;}
     }
 }

@@ -16,6 +16,10 @@ namespace applestore.Data.Configurations {
             builder.HasOne(x => x.product)
                 .WithMany(x => x.carts)
                 .HasForeignKey(x => x.productId);
+
+            builder.HasOne(x => x.auth)
+                .WithMany(x => x.carts)
+                .HasForeignKey(x => x.userId);
         }
     }
 }

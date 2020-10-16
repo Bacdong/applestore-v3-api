@@ -16,8 +16,110 @@ namespace applestore.Data.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn)
-                .HasAnnotation("ProductVersion", "3.1.8")
+                .HasAnnotation("ProductVersion", "3.1.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RoleClaims");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserClaims");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("text");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("UserLogins");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.ToTable("UserRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
+                            RoleId = new Guid("8d04dce2-969a-435d-bba4-df3f325983dc")
+                        });
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("text");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("UserTokens");
+                });
 
             modelBuilder.Entity("applestore.Data.Entity.AppConfig", b =>
                 {
@@ -59,6 +161,128 @@ namespace applestore.Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("applestore.Data.Entity.Auth", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("text");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("boolean");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasColumnType("text");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasColumnType("text");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("text");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("text");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("text");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("text");
+
+                    b.Property<string>("address")
+                        .HasColumnType("character varying(200)")
+                        .HasMaxLength(200);
+
+                    b.Property<string>("firstName")
+                        .IsRequired()
+                        .HasColumnType("character varying(40)")
+                        .HasMaxLength(40);
+
+                    b.Property<string>("lastName")
+                        .IsRequired()
+                        .HasColumnType("character varying(40)")
+                        .HasMaxLength(40);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "e1748cd6-fd39-46a0-b689-0e3a7d1f5104",
+                            Email = "duongdong2203@gmail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "duongdong2203@gmail.com",
+                            NormalizedUserName = "admin",
+                            PasswordHash = "AQAAAAEAACcQAAAAEC9oLBZS3LKWYQvUJvEkYJpqpxWTyAKCUpdK2FxSSltL5nf4IH2ZPCKWeuimuW1E1A==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "admin",
+                            address = "Hem 566/137 Nguyen Thai Son, Phuong 10, Quan Go Vap, TP. HCM",
+                            firstName = "Bac Dong",
+                            lastName = "Duong"
+                        });
+                });
+
+            modelBuilder.Entity("applestore.Data.Entity.AuthRole", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<string>("NormalizedName")
+                        .HasColumnType("text");
+
+                    b.Property<string>("brief")
+                        .HasColumnType("character varying(40)")
+                        .HasMaxLength(40);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Roles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("8d04dce2-969a-435d-bba4-df3f325983dc"),
+                            ConcurrencyStamp = "abcd2b5f-473a-4c7a-930e-afa816215b07",
+                            Name = "admin",
+                            NormalizedName = "admin",
+                            brief = "Administrator role"
+                        });
+                });
+
             modelBuilder.Entity("applestore.Data.Entity.Cart", b =>
                 {
                     b.Property<int>("id")
@@ -84,6 +308,8 @@ namespace applestore.Data.Migrations
                     b.HasKey("id");
 
                     b.HasIndex("productId");
+
+                    b.HasIndex("userId");
 
                     b.ToTable("Carts");
                 });
@@ -368,6 +594,8 @@ namespace applestore.Data.Migrations
 
                     b.HasKey("id");
 
+                    b.HasIndex("userId");
+
                     b.ToTable("Orders");
                 });
 
@@ -402,7 +630,7 @@ namespace applestore.Data.Migrations
                     b.Property<DateTime>("created")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp without time zone")
-                        .HasDefaultValue(new DateTime(2020, 10, 14, 8, 11, 52, 788, DateTimeKind.Utc).AddTicks(3284));
+                        .HasDefaultValue(new DateTime(2020, 10, 16, 7, 48, 37, 257, DateTimeKind.Utc).AddTicks(6057));
 
                     b.Property<decimal>("originalPrice")
                         .HasColumnType("numeric");
@@ -431,7 +659,7 @@ namespace applestore.Data.Migrations
                         new
                         {
                             id = 1,
-                            created = new DateTime(2020, 10, 14, 8, 11, 52, 850, DateTimeKind.Utc).AddTicks(3330),
+                            created = new DateTime(2020, 10, 16, 7, 48, 37, 327, DateTimeKind.Utc).AddTicks(9505),
                             originalPrice = 800m,
                             price = 868m,
                             seoAlias = "iphone-11-promax",
@@ -596,7 +824,12 @@ namespace applestore.Data.Migrations
                     b.Property<int>("status")
                         .HasColumnType("integer");
 
+                    b.Property<Guid>("userId")
+                        .HasColumnType("uuid");
+
                     b.HasKey("id");
+
+                    b.HasIndex("userId");
 
                     b.ToTable("Transactions");
                 });
@@ -606,6 +839,12 @@ namespace applestore.Data.Migrations
                     b.HasOne("applestore.Data.Entity.Product", "product")
                         .WithMany("carts")
                         .HasForeignKey("productId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("applestore.Data.Entity.Auth", "auth")
+                        .WithMany("carts")
+                        .HasForeignKey("userId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -621,6 +860,15 @@ namespace applestore.Data.Migrations
                     b.HasOne("applestore.Data.Entity.Language", "language")
                         .WithMany("categoryTranslations")
                         .HasForeignKey("languageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("applestore.Data.Entity.Order", b =>
+                {
+                    b.HasOne("applestore.Data.Entity.Auth", "auth")
+                        .WithMany("orders")
+                        .HasForeignKey("userId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -666,6 +914,15 @@ namespace applestore.Data.Migrations
                     b.HasOne("applestore.Data.Entity.Product", "product")
                         .WithMany("productTranslations")
                         .HasForeignKey("productId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("applestore.Data.Entity.Transaction", b =>
+                {
+                    b.HasOne("applestore.Data.Entity.Auth", "auth")
+                        .WithMany("transactions")
+                        .HasForeignKey("userId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

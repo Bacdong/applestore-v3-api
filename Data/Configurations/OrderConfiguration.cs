@@ -10,6 +10,9 @@ namespace applestore.Data.Configurations {
             builder.ToTable("Orders");
 
             builder.HasKey(x => x.id);
+            builder.HasOne(x => x.auth)
+                .WithMany(x => x.orders)
+                .HasForeignKey(x => x.userId);
         }
     }
 }
