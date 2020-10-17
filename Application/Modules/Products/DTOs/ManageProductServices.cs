@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using applestore.Application.DTOs;
 using applestore.Application.Modules.Products.DTOs;
@@ -103,18 +102,15 @@ namespace applestore.Application.Modules.Products {
             throw new NotImplementedException();
         }
 
-        public Task<bool> updatePrice(int productId, decimal newPrice)
-        {
+        public Task<bool> updatePrice(int productId, decimal newPrice) {
             throw new NotImplementedException();
         }
 
-        public Task<bool> updateStock(int productId, int newQuantity)
-        {
+        public Task<bool> updateStock(int productId, int newQuantity) {
             throw new NotImplementedException();
         }
 
-        Task<List<ProductViewModel>> IManageProductServices.GetAll()
-        {
+        Task<List<ProductViewModel>> IManageProductServices.GetAll() {
             throw new NotImplementedException();
         }
     }

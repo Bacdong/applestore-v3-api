@@ -1,10 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
 using applestore.Data.Entity;
 using Microsoft.EntityFrameworkCore;
 
-namespace applestore.Data.Configurations {
+namespace applestore.Data.Configurations
+{
     public class CategoryTranslationConfiguration : IEntityTypeConfiguration<CategoryTranslation> {
         public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<CategoryTranslation> builder) {
             builder.ToTable("CategoryTranslations");

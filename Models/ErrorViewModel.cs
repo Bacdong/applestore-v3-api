@@ -1,7 +1,4 @@
-using System;
-
-namespace applestore.Models
-{
+namespace applestore.Models {
     public class ErrorViewModel
     {
         public string RequestId { get; set; }

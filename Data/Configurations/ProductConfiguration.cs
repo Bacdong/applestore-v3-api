@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using applestore.Data.Entity;
 using Microsoft.EntityFrameworkCore;
 

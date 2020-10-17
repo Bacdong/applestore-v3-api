@@ -1,8 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace applestore.Application.Modules.Products.DTOs {
+namespace applestore.Application.Modules.Products.DTOs
+{
     public class ProductViewModel {
         public int id {get; set;}
         public string name {get; set;}

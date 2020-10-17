@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace applestore.Data.Entity {
     public class ProductTranslation {
         public int id {get; set;}
