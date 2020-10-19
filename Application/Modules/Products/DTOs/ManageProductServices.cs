@@ -48,10 +48,10 @@ namespace applestore.Application.Modules.Products {
         }
 
         public async Task<int> delete(int productId) {
-            var product = await _context.Products.FindAsync(productId);
             if (productId == null) 
                 throw new AppleException($"Product {productId} not found, try again.");
                 
+            var product = await _context.Products.FindAsync(productId);
             _context.Products.Remove(product);
 
             return await _context.SaveChangesAsync();
