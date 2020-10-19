@@ -232,13 +232,13 @@ namespace applestore.Data.Migrations
                         {
                             Id = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e1748cd6-fd39-46a0-b689-0e3a7d1f5104",
+                            ConcurrencyStamp = "ccf5e7b4-948b-4905-9696-c88c2592eff8",
                             Email = "duongdong2203@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "duongdong2203@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEC9oLBZS3LKWYQvUJvEkYJpqpxWTyAKCUpdK2FxSSltL5nf4IH2ZPCKWeuimuW1E1A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECGIvjKiYTrDh+6di1/9Tnza1n71w7egW/KPWxcDc8ZJB8S2i0ghEUw04tSoF64/Rw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -276,7 +276,7 @@ namespace applestore.Data.Migrations
                         new
                         {
                             Id = new Guid("8d04dce2-969a-435d-bba4-df3f325983dc"),
-                            ConcurrencyStamp = "abcd2b5f-473a-4c7a-930e-afa816215b07",
+                            ConcurrencyStamp = "2ce1ff53-aeb2-46f9-8645-daaa0ff098dc",
                             Name = "admin",
                             NormalizedName = "admin",
                             brief = "Administrator role"
@@ -630,7 +630,7 @@ namespace applestore.Data.Migrations
                     b.Property<DateTime>("created")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp without time zone")
-                        .HasDefaultValue(new DateTime(2020, 10, 16, 7, 48, 37, 257, DateTimeKind.Utc).AddTicks(6057));
+                        .HasDefaultValue(new DateTime(2020, 10, 19, 8, 29, 33, 803, DateTimeKind.Utc).AddTicks(6625));
 
                     b.Property<decimal>("originalPrice")
                         .HasColumnType("numeric");
@@ -659,13 +659,46 @@ namespace applestore.Data.Migrations
                         new
                         {
                             id = 1,
-                            created = new DateTime(2020, 10, 16, 7, 48, 37, 327, DateTimeKind.Utc).AddTicks(9505),
+                            created = new DateTime(2020, 10, 19, 8, 29, 33, 912, DateTimeKind.Utc).AddTicks(4828),
                             originalPrice = 800m,
                             price = 868m,
                             seoAlias = "iphone-11-promax",
                             stock = 100,
                             viewCount = 0
                         });
+                });
+
+            modelBuilder.Entity("applestore.Data.Entity.ProductImage", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<DateTime>("created")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp without time zone")
+                        .HasDefaultValue(new DateTime(2020, 10, 19, 8, 29, 33, 897, DateTimeKind.Utc).AddTicks(9432));
+
+                    b.Property<string>("imagePath")
+                        .IsRequired()
+                        .HasColumnType("character varying(200)")
+                        .HasMaxLength(200);
+
+                    b.Property<bool>("isDefault")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("productId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("sortOrder")
+                        .HasColumnType("integer");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("productId");
+
+                    b.ToTable("ProductImages");
                 });
 
             modelBuilder.Entity("applestore.Data.Entity.ProductInCategory", b =>
@@ -883,6 +916,15 @@ namespace applestore.Data.Migrations
 
                     b.HasOne("applestore.Data.Entity.Product", "product")
                         .WithMany("orderLines")
+                        .HasForeignKey("productId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("applestore.Data.Entity.ProductImage", b =>
+                {
+                    b.HasOne("applestore.Data.Entity.Product", "product")
+                        .WithMany("productImages")
                         .HasForeignKey("productId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

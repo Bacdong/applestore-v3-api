@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using applestore.Application.DTOs;
 
 namespace applestore.Application.Modules.Products.DTOs.Public {
