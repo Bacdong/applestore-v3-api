@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using applestore.Application.DTOs;
 using applestore.Application.Modules.Products.DTOs;
 using applestore.Application.Modules.Products.DTOs.Manage;
-using applestore.Application.Modules.Products.DTOs.Public;
 
 namespace applestore.Application.Modules.Products {
     public interface IManageProductServices {
@@ -19,7 +18,6 @@ namespace applestore.Application.Modules.Products {
 
         Task addViewCount(int productId);
 
-        Task<List<ProductViewModel>> GetAll();
         Task<PagedResult<ProductViewModel>> GetProductAllPaging(GetProductPagingRequest request);
     }
 }

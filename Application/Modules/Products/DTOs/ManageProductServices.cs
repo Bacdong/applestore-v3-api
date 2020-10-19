@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using applestore.Application.DTOs;
 using applestore.Application.Modules.Products.DTOs;
-using applestore.Application.Modules.Products.DTOs.Public;
 using applestore.Application.Modules.Products.DTOs.Manage;
 using applestore.Data.EF;
 using applestore.Data.Entity;
@@ -48,10 +47,10 @@ namespace applestore.Application.Modules.Products {
         }
 
         public async Task<int> delete(int productId) {
-            if (productId == null) 
-                throw new AppleException($"Product {productId} not found, try again.");
-                
             var product = await _context.Products.FindAsync(productId);
+            if (product == null) 
+                throw new AppleException($"Product {productId} not found, try again!");
+                
             _context.Products.Remove(product);
 
             return await _context.SaveChangesAsync();
@@ -99,19 +98,39 @@ namespace applestore.Application.Modules.Products {
         }
 
         public async Task<int> update(ProductUpdateRequest request) {
-            throw new NotImplementedException();
+            var product = await _context.Products.FindAsync(request.id);
+            var productTranslation = await _context.ProductTranslations.FirstOrDefaultAsync(
+                x => x.productId == request.id && x.languageId == request.languageId);
+
+            if (product == null || productTranslation == null)
+                throw new AppleException($"Product {request.id} not found, try again!");
+
+            productTranslation.name = request.name;
+            productTranslation.brief = request.brief;
+            productTranslation.title = request.title;
+            productTranslation.seoAlias = request.seoAlias;
+
+            return await _context.SaveChangesAsync();
         }
 
-        public Task<bool> updatePrice(int productId, decimal newPrice) {
-            throw new NotImplementedException();
+        public async Task<bool> updatePrice(int productId, decimal newPrice) {
+            var product = await _context.Products.FindAsync(productId);
+            if (product == null)
+                throw new AppleException($"Product {productId} not found, try again!");
+
+            product.price = newPrice;
+
+            return await _context.SaveChangesAsync() > 0;
         }
 
-        public Task<bool> updateStock(int productId, int newQuantity) {
-            throw new NotImplementedException();
-        }
+        public async Task<bool> updateStock(int productId, int newQuantity) {
+            var product = await _context.Products.FindAsync(productId);
+            if (product == null)
+                throw new AppleException($"Product {productId} not found, try again!");
 
-        Task<List<ProductViewModel>> IManageProductServices.GetAll() {
-            throw new NotImplementedException();
+            product.stock += newQuantity;
+
+            return await _context.SaveChangesAsync() > 0;
         }
     }
 }
