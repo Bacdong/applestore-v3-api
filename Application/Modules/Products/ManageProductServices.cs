@@ -1,20 +1,26 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using applestore.Application.DTOs;
-using applestore.Application.Modules.Products.DTOs;
-using applestore.Application.Modules.Products.DTOs.Manage;
+using applestore.Application.Core;
 using applestore.Data.EF;
 using applestore.Data.Entity;
 using applestore.Utilities.Exceptions;
+using applestore.ViewModels.Core;
+using applestore.ViewModels.Modules.Product;
+using applestore.ViewModels.Modules.Product.Manage;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
 namespace applestore.Application.Modules.Products {
     public class ManageProductServices : IManageProductServices {
         private readonly AppleDbContext _context;
-        public ManageProductServices(AppleDbContext context) {
+        private readonly IStorageServices _storageService;
+        public ManageProductServices(AppleDbContext context, IStorageServices storageServices) {
             _context = context;
+            _storageService = storageServices;
         }
 
         public async Task addViewCount(int productId) {
@@ -41,6 +47,18 @@ namespace applestore.Application.Modules.Products {
                     }
                 }
             };
+
+            // Save image
+            if (request.thumbnail != null)
+                product.productImages = new List<ProductImage>() {
+                    new ProductImage() {
+                        created = DateTime.UtcNow,
+                        imagePath = await this.SaveFile(request.thumbnail),
+                        isDefault = true,
+                        sortOrder = 1, 
+                    }
+                };
+
             _context.Products.Add(product);
 
             return await _context.SaveChangesAsync();
@@ -131,6 +149,16 @@ namespace applestore.Application.Modules.Products {
             product.stock += newQuantity;
 
             return await _context.SaveChangesAsync() > 0;
+        }
+    
+        private async Task<string> SaveFile(IFormFile file) {
+            var originalFileName = ContentDispositionHeaderValue.Parse(
+                file.ContentDisposition).FileName.Trim('"');
+            
+            var fileName = $"{Guid.NewGuid()}{Path.GetExtension(originalFileName)}";
+            await _storageService.SaveFileAsync(file.OpenReadStream(), fileName);
+
+            return fileName;
         }
     }
 }

@@ -1,6 +1,6 @@
-using applestore.Application.DTOs;
+using applestore.ViewModels.Core;
 
-namespace applestore.Application.Modules.Products.DTOs.Public {
+namespace applestore.ViewModels.Modules.Product.Public {
     public class GetProductPagingRequest : PagingRequestBase {
         public int? categoryId {get; set;}
     }

@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using applestore.Application.DTOs;
-using applestore.Application.Modules.Products.DTOs;
-using applestore.Application.Modules.Products.DTOs.Public;
+using applestore.ViewModels.Core;
+using applestore.ViewModels.Modules.Product;
+using applestore.ViewModels.Modules.Product.Public;
 
 namespace applestore.Application.Modules.Products {
     public interface IPublicProductServices {
         Task<PagedResult<ProductViewModel>> GetAllByCategoryId(GetProductPagingRequest request); 
-        Task<List<ProductViewModel>> GetAll();
     }
 }

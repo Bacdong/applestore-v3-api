@@ -35,7 +35,7 @@ sudo apt-get update && sudo apt-get install dbeaver-ce
 
 ### Package Installation ###
 ```
-cd applestore_dotnet_core
+cd applestore_dotnet_core/WebApp
 ```
 
 * Entity Framework:
@@ -46,6 +46,7 @@ dotnet add package Microsoft.EntityFrameworkCore.Tools
 dotnet add package Microsoft.Extensions.Configuration.FileExtensions
 dotnet add package Microsoft.Extensions.Configuration.Json
 dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore
+dotnet add package Microsoft.AspNetCore.Hosting
 ```
 
 * EF Core Tools: `Installation`

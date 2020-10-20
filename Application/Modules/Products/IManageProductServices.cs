@@ -1,8 +1,7 @@
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using applestore.Application.DTOs;
-using applestore.Application.Modules.Products.DTOs;
-using applestore.Application.Modules.Products.DTOs.Manage;
+using applestore.ViewModels.Core;
+using applestore.ViewModels.Modules.Product;
+using applestore.ViewModels.Modules.Product.Manage;
 
 namespace applestore.Application.Modules.Products {
     public interface IManageProductServices {

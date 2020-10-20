@@ -232,13 +232,13 @@ namespace applestore.Data.Migrations
                         {
                             Id = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ccf5e7b4-948b-4905-9696-c88c2592eff8",
+                            ConcurrencyStamp = "47f921ca-0242-4c3d-9ad2-436611a32692",
                             Email = "duongdong2203@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "duongdong2203@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAECGIvjKiYTrDh+6di1/9Tnza1n71w7egW/KPWxcDc8ZJB8S2i0ghEUw04tSoF64/Rw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENcJlkz8l0Pnu9uPzVLCCaRcsZsoRJ0vTMfnEYbkYKthaqSa/uRdhpfLhXtVGYt7xw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -276,7 +276,7 @@ namespace applestore.Data.Migrations
                         new
                         {
                             Id = new Guid("8d04dce2-969a-435d-bba4-df3f325983dc"),
-                            ConcurrencyStamp = "2ce1ff53-aeb2-46f9-8645-daaa0ff098dc",
+                            ConcurrencyStamp = "813e5b0a-b820-4873-a1dd-11d640e4394f",
                             Name = "admin",
                             NormalizedName = "admin",
                             brief = "Administrator role"
@@ -630,7 +630,7 @@ namespace applestore.Data.Migrations
                     b.Property<DateTime>("created")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp without time zone")
-                        .HasDefaultValue(new DateTime(2020, 10, 19, 8, 29, 33, 803, DateTimeKind.Utc).AddTicks(6625));
+                        .HasDefaultValue(new DateTime(2020, 10, 20, 1, 57, 45, 917, DateTimeKind.Utc).AddTicks(2342));
 
                     b.Property<decimal>("originalPrice")
                         .HasColumnType("numeric");
@@ -659,7 +659,7 @@ namespace applestore.Data.Migrations
                         new
                         {
                             id = 1,
-                            created = new DateTime(2020, 10, 19, 8, 29, 33, 912, DateTimeKind.Utc).AddTicks(4828),
+                            created = new DateTime(2020, 10, 20, 1, 57, 45, 995, DateTimeKind.Utc).AddTicks(994),
                             originalPrice = 800m,
                             price = 868m,
                             seoAlias = "iphone-11-promax",
@@ -678,7 +678,7 @@ namespace applestore.Data.Migrations
                     b.Property<DateTime>("created")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp without time zone")
-                        .HasDefaultValue(new DateTime(2020, 10, 19, 8, 29, 33, 897, DateTimeKind.Utc).AddTicks(9432));
+                        .HasDefaultValue(new DateTime(2020, 10, 20, 1, 57, 45, 985, DateTimeKind.Utc).AddTicks(1123));
 
                     b.Property<string>("imagePath")
                         .IsRequired()

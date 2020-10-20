@@ -1,4 +1,6 @@
-namespace applestore.Application.Modules.Products.DTOs.Manage {
+using Microsoft.AspNetCore.Http;
+
+namespace applestore.ViewModels.Modules.Product.Manage {
     public class ProductUpdateRequest {
         public int id {get; set;}
         public string name {get; set;}
@@ -6,5 +8,7 @@ namespace applestore.Application.Modules.Products.DTOs.Manage {
         public string title {get; set;}
         public int languageId {get; set;}
         public string seoAlias {get; set;}
+
+        public IFormFile thumbnail {get; set;}
     }
 }

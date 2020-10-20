@@ -1,22 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using applestore.Application.DTOs;
-using applestore.Application.Modules.Products.DTOs;
-using applestore.Application.Modules.Products.DTOs.Public;
 using applestore.Data.EF;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using applestore.ViewModels.Core;
+using applestore.ViewModels.Modules.Product;
+using applestore.ViewModels.Modules.Product.Public;
 
 namespace applestore.Application.Modules.Products {
     public class PublicProductServices : IPublicProductServices {
         private readonly AppleDbContext _context;
         public PublicProductServices(AppleDbContext context) {
             _context = context;
-        }
-
-        public Task<List<ProductViewModel>> GetAll() {
-            throw new NotImplementedException();
         }
 
         public async Task<PagedResult<ProductViewModel>> GetAllByCategoryId(GetProductPagingRequest request) {

@@ -1,9 +1,9 @@
 ﻿using System.Diagnostics;
+using applestore.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using applestore.Models;
 
-namespace applestore.Controllers
+namespace applestore.WebApp.Controllers
 {
     public class HomeController : Controller
     {
