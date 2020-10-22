@@ -86,10 +86,15 @@ git push -u origin master (push to Github)
 git push -u Main master (push to Gitlab)
 ```
 
+
 ### Project Start ###
 ```
 dotnet watch run
 ```
+
+
+### Template ###
+[Templete Here](https://github.com/BuiTrungHau1312/applestore_template)
 
 
 ### Participants ###
