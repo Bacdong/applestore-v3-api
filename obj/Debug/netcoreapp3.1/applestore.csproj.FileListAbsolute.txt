@@ -46,13 +46,6 @@
 /home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/applestore.TagHelpers.input.cache
 /home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/applestore.TagHelpers.output.cache
 /home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/applestore.RazorCoreGenerate.cache
-/home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs
-/home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/Razor/Views/Home/Privacy.cshtml.g.cs
-/home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/Razor/Views/Shared/Error.cshtml.g.cs
-/home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_Layout.cshtml.g.cs
-/home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_ValidationScriptsPartial.cshtml.g.cs
-/home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/Razor/Views/_ViewImports.cshtml.g.cs
-/home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/Razor/Views/_ViewStart.cshtml.g.cs
 /home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/applestore.RazorTargetAssemblyInfo.cache
 /home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/applestore.RazorTargetAssemblyInfo.cs
 /home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/applestore.Views.pdb
@@ -67,3 +60,10 @@
 /home/bacdong/Code/project/applestore/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 /home/bacdong/Code/project/applestore/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Core.dll
 /home/bacdong/Code/project/applestore/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Stores.dll
+/home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/Razor/WebApp/Views/Home/Index.cshtml.g.cs
+/home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/Razor/WebApp/Views/Home/Privacy.cshtml.g.cs
+/home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/Razor/WebApp/Views/Shared/Error.cshtml.g.cs
+/home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/Razor/WebApp/Views/Shared/_Layout.cshtml.g.cs
+/home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/Razor/WebApp/Views/Shared/_ValidationScriptsPartial.cshtml.g.cs
+/home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/Razor/WebApp/Views/_ViewImports.cshtml.g.cs
+/home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/Razor/WebApp/Views/_ViewStart.cshtml.g.cs

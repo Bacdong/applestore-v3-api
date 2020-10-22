@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using applestore.Application.Modules.Products;
 using Microsoft.AspNetCore.Mvc;
 
-namespace applestore.Controllers {
+namespace applestore.WebApp.Controllers {
 
     [Route("frontapi/[controller]")]
     [ApiController]

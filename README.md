@@ -86,6 +86,11 @@ git push -u origin master (push to Github)
 git push -u Main master (push to Gitlab)
 ```
 
+### Project Start ###
+```
+dotnet watch run
+```
+
 
 ### Participants ###
 - [Duong Bac Dong](https://github.com/Bacdong)
