@@ -94,7 +94,7 @@ dotnet watch run
 
 
 ### Template ###
-[Templete Here](https://github.com/BuiTrungHau1312/applestore_template)
+* [Apple Store Templete](https://github.com/BuiTrungHau1312/applestore_template)
 
 
 ### Participants ###
