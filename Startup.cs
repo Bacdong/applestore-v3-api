@@ -1,3 +1,4 @@
+using applestore.Application.Modules.Products;
 using applestore.Data.EF;
 using applestore.Utilities.Constaints;
 using Microsoft.AspNetCore.Builder;
@@ -22,6 +23,9 @@ namespace applestore {
             services.AddEntityFrameworkNpgsql().AddDbContext<AppleDbContext>(opt =>
                 opt.UseNpgsql(Configuration.GetConnectionString(
                     SystemConstaints.AppleStoreConnection)));
+
+            // Declare DI
+            services.AddTransient<IPublicProductServices, PublicProductServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

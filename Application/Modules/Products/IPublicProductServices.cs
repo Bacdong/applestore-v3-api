@@ -6,6 +6,9 @@ using applestore.ViewModels.Modules.Product.Public;
 
 namespace applestore.Application.Modules.Products {
     public interface IPublicProductServices {
-        Task<PagedResult<ProductViewModel>> GetAllByCategoryId(GetProductPagingRequest request); 
+        Task<PagedResult<ProductViewModel>> GetAllByCategoryId(
+            GetProductPagingRequest request); 
+
+        Task<List<ProductViewModel>> GetAll();
     }
 }

@@ -15,6 +15,30 @@ namespace applestore.Application.Modules.Products {
             _context = context;
         }
 
+        public async Task<List<ProductViewModel>> GetAll() {
+            var query = from p in _context.Products
+                        join pt in _context.ProductTranslations on p.id equals pt.productId
+                        join pic in _context.ProductInCategories 
+                            on p.id equals pic.productId
+                        join c in _context.Categories on pic.categoryId equals c.id
+                        select new {p, pt, pic};
+
+            var data = await query.Select(x => new ProductViewModel() {
+                    id = x.p.id,
+                    name = x.pt.name,
+                    brief = x.pt.brief,
+                    title = x.pt.title,
+                    price = x.p.price,
+                    originalPrice = x.p.originalPrice,
+                    languageId = x.pt.languageId,
+                    seoAlias = x.pt.seoAlias,
+                    stock = x.p.stock,
+                    viewCount = x.p.viewCount,
+                }).ToListAsync();
+
+            return data;
+        }
+
         public async Task<PagedResult<ProductViewModel>> GetAllByCategoryId(GetProductPagingRequest request) {
             // SELECT JOIN
             var query = from p in _context.Products
