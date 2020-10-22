@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using applestore.ViewModels.Core;
 using applestore.ViewModels.Modules.Product;
 using applestore.ViewModels.Modules.Product.Manage;
+using Microsoft.AspNetCore.Http;
 
 namespace applestore.Application.Modules.Products {
     public interface IManageProductServices {
@@ -17,6 +19,15 @@ namespace applestore.Application.Modules.Products {
 
         Task addViewCount(int productId);
 
-        Task<PagedResult<ProductViewModel>> GetProductAllPaging(GetProductPagingRequest request);
+        Task<int> AddImages(int productId, List<IFormFile> files);
+
+        Task<int> UpdateImages(int imageId, bool isDefault);
+
+        Task<int> RemoveImages(int imageId);
+
+        Task<List<ProductImageViewModel>> GetListImage(int productId);
+
+        Task<PagedResult<ProductViewModel>> GetProductAllPaging(
+            ViewModels.Modules.Product.Manage.GetProductPagingRequest request);
     }
 }

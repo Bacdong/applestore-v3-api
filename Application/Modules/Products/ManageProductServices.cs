@@ -18,9 +18,14 @@ namespace applestore.Application.Modules.Products {
     public class ManageProductServices : IManageProductServices {
         private readonly AppleDbContext _context;
         private readonly IStorageServices _storageService;
-        public ManageProductServices(AppleDbContext context, IStorageServices storageServices) {
+        public ManageProductServices(
+            AppleDbContext context, IStorageServices storageServices) {
             _context = context;
             _storageService = storageServices;
+        }
+
+        public Task<int> AddImages(int productId, List<IFormFile> files) {
+            throw new NotImplementedException();
         }
 
         public async Task addViewCount(int productId) {
@@ -69,16 +74,34 @@ namespace applestore.Application.Modules.Products {
             if (product == null) 
                 throw new AppleException($"Product {productId} not found, try again!");
                 
-            _context.Products.Remove(product);
+            var images = _context.ProductImages
+                .Where(x => x.productId == productId);
 
+            foreach (var image in images)
+                await _storageService.DeleteFileAsync(image.imagePath);
+            
+            _context.Products.Remove(product);
+            
             return await _context.SaveChangesAsync();
         }
 
-        public async Task<PagedResult<ProductViewModel>> GetProductAllPaging(GetProductPagingRequest request) {
+        public async Task<List<ProductImageViewModel>> 
+            GetListImage(int productId) {
+                return await _context.ProductImages.Where(x => x.productId == productId)
+                    .Select(images => new ProductImageViewModel() {
+                        id = images.id,
+                        imagePath = images.imagePath,
+                        isDefault = images.isDefault,
+                    }).ToListAsync();   
+        }
+
+        public async Task<PagedResult<ProductViewModel>> GetProductAllPaging(
+            GetProductPagingRequest request) {
             // SELECT JOIN
             var query = from p in _context.Products
                         join pt in _context.ProductTranslations on p.id equals pt.productId
-                        join pic in _context.ProductInCategories on p.id equals pic.productId
+                        join pic in _context.ProductInCategories 
+                            on p.id equals pic.productId
                         join c in _context.Categories on pic.categoryId equals c.id
                         select new {p, pt, pic};
 
@@ -115,10 +138,22 @@ namespace applestore.Application.Modules.Products {
             return pageResult;
         }
 
+        public async Task<int> RemoveImages(int imageId) {
+            var image = await _context.ProductImages.FindAsync(imageId);
+
+            if (image == null)
+                throw new AppleException($"Image {imageId} not found, try again!");
+
+            _context.ProductImages.Remove(image);
+
+            return await _context.SaveChangesAsync();
+        }
+
         public async Task<int> update(ProductUpdateRequest request) {
             var product = await _context.Products.FindAsync(request.id);
-            var productTranslation = await _context.ProductTranslations.FirstOrDefaultAsync(
-                x => x.productId == request.id && x.languageId == request.languageId);
+            var productTranslation = await _context
+                .ProductTranslations.FirstOrDefaultAsync(
+                    x => x.productId == request.id && x.languageId == request.languageId);
 
             if (product == null || productTranslation == null)
                 throw new AppleException($"Product {request.id} not found, try again!");
@@ -127,6 +162,30 @@ namespace applestore.Application.Modules.Products {
             productTranslation.brief = request.brief;
             productTranslation.title = request.title;
             productTranslation.seoAlias = request.seoAlias;
+
+            // Save images
+            if (request.thumbnail != null) {
+                var productUpdate = await _context.ProductImages
+                    .FirstOrDefaultAsync(
+                        x => x.isDefault == true && x.productId == request.id);
+
+                if (productUpdate != null)
+                    productUpdate.imagePath = await this.SaveFile(request.thumbnail);
+            }
+
+            return await _context.SaveChangesAsync();
+        }
+
+        public async Task<int> UpdateImages(int imageId, bool isDefault) {
+            var images = _context.ProductImages.Where(x => x.id == imageId);
+            if (images == null)
+                throw new AppleException($"Image {imageId} not found, try again!");
+
+            var imageUpdate = await _context.ProductImages
+                .FirstOrDefaultAsync(x => x.id == imageId);
+
+            if (imageUpdate != null)
+                imageUpdate.isDefault = isDefault;
 
             return await _context.SaveChangesAsync();
         }
