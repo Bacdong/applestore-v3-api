@@ -47,6 +47,7 @@ dotnet add package Microsoft.Extensions.Configuration.FileExtensions
 dotnet add package Microsoft.Extensions.Configuration.Json
 dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore
 dotnet add package Microsoft.AspNetCore.Hosting
+dotnet add package Microsoft.AspNetCore.Http
 ```
 
 * EF Core Tools: `Installation`

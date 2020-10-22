@@ -1,5 +1,8 @@
+using applestore.Data.EF;
+using applestore.Utilities.Constaints;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -16,8 +19,9 @@ namespace applestore {
         public void ConfigureServices(IServiceCollection services) {
             services.AddControllersWithViews();
             services.AddMvc();
-            // services.AddEntityFrameworkNpgsql().AddDbContext<AppleDbContext>(opt =>
-            //     opt.UseNpgsql(Configuration.GetConnectionString("AppleStoreConnection")));
+            services.AddEntityFrameworkNpgsql().AddDbContext<AppleDbContext>(opt =>
+                opt.UseNpgsql(Configuration.GetConnectionString(
+                    SystemConstaints.AppleStoreConnection)));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
