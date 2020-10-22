@@ -35,7 +35,7 @@ sudo apt-get update && sudo apt-get install dbeaver-ce
 
 ### Package Installation ###
 ```
-cd applestore_dotnet_core/WebApp
+cd applestore_dotnet_core
 ```
 
 * Entity Framework:
