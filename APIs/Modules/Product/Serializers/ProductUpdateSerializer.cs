@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Http;
 
-namespace applestore.ViewModels.Modules.Product.Manage {
-    public class ProductUpdateRequest {
+namespace applestore.APIs.Modules.Product.Serializers {
+    public class ProductUpdateSerializer {
         public int id {get; set;}
         public string name {get; set;}
         public string brief {get; set;}

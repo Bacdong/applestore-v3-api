@@ -1,17 +1,16 @@
-using System;
+using Microsoft.AspNetCore.Http;
 
-namespace applestore.ViewModels.Modules.Product {
-    public class ProductViewModel {
-        public int id {get; set;}
+namespace applestore.APIs.Modules.Product.Serializers {
+    public class ProductCreateSerializer {
         public string name {get; set;}
         public string brief {get; set;}
         public string title {get; set;}
         public decimal price {get; set;}
         public decimal originalPrice {get; set;}
         public int stock {get; set;}
-        public int viewCount {get; set;}
-        public DateTime created {get; set;}
         public string seoAlias {get; set;}
         public int languageId {get; set;}
+
+        public IFormFile thumbnail {get; set;}
     }
 }

@@ -14,7 +14,7 @@ namespace applestore.WebApp.Controllers {
         
         [HttpGet]
         public async Task<IActionResult> Get() {
-            var products = await _publicProductServices.GetAll();
+            var products = await _publicProductServices.ProductListView();
 
             return Ok(products);
         }

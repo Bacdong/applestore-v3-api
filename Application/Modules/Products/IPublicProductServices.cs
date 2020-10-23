@@ -1,14 +1,13 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using applestore.ViewModels.Core;
-using applestore.ViewModels.Modules.Product;
-using applestore.ViewModels.Modules.Product.Public;
+using applestore.APIs.Core;
+using applestore.APIs.Modules.Product.Serializers;
 
 namespace applestore.Application.Modules.Products {
     public interface IPublicProductServices {
-        Task<PagedResult<ProductViewModel>> GetAllByCategoryId(
-            GetProductPagingRequest request); 
+        Task<PaginationSerializer<ProductListSerializer>> CategoryListByIdView(
+            ProductPaginationByCategoryIdListSerializer request); 
 
-        Task<List<ProductViewModel>> GetAll();
+        Task<List<ProductListSerializer>> ProductListView();
     }
 }

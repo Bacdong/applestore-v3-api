@@ -1,15 +1,14 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using applestore.ViewModels.Core;
-using applestore.ViewModels.Modules.Product;
-using applestore.ViewModels.Modules.Product.Manage;
+using applestore.APIs.Core;
+using applestore.APIs.Modules.Product.Serializers;
 using Microsoft.AspNetCore.Http;
 
 namespace applestore.Application.Modules.Products {
     public interface IManageProductServices {
-        Task<int> create(ProductCreateRequest request);
+        Task<int> create(ProductCreateSerializer request);
 
-        Task<int> update(ProductUpdateRequest request);
+        Task<int> update(ProductUpdateSerializer request);
 
         Task<int> delete(int productId);
 
@@ -27,7 +26,7 @@ namespace applestore.Application.Modules.Products {
 
         Task<List<ProductImageViewModel>> GetListImage(int productId);
 
-        Task<PagedResult<ProductViewModel>> GetProductAllPaging(
-            ViewModels.Modules.Product.Manage.GetProductPagingRequest request);
+        Task<PaginationSerializer<ProductListSerializer>> ProductPaginationListView(
+            APIs.Modules.Product.Serializers.ProductPaginationListSerializer request);
     }
 }

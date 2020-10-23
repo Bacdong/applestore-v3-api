@@ -8,9 +8,8 @@ using applestore.Application.Core;
 using applestore.Data.EF;
 using applestore.Data.Entity;
 using applestore.Utilities.Exceptions;
-using applestore.ViewModels.Core;
-using applestore.ViewModels.Modules.Product;
-using applestore.ViewModels.Modules.Product.Manage;
+using applestore.APIs.Core;
+using applestore.APIs.Modules.Product.Serializers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
@@ -34,7 +33,7 @@ namespace applestore.Application.Modules.Products {
             await _context.SaveChangesAsync();
         }
 
-        public async Task<int> create(ProductCreateRequest request) {
+        public async Task<int> create(ProductCreateSerializer request) {
             var product = new Product() {
                 price = request.price,
                 originalPrice = request.originalPrice,
@@ -87,7 +86,8 @@ namespace applestore.Application.Modules.Products {
 
         public async Task<List<ProductImageViewModel>> 
             GetListImage(int productId) {
-                return await _context.ProductImages.Where(x => x.productId == productId)
+                return await _context.ProductImages
+                    .Where(x => x.productId == productId)
                     .Select(images => new ProductImageViewModel() {
                         id = images.id,
                         imagePath = images.imagePath,
@@ -95,47 +95,49 @@ namespace applestore.Application.Modules.Products {
                     }).ToListAsync();   
         }
 
-        public async Task<PagedResult<ProductViewModel>> GetProductAllPaging(
-            GetProductPagingRequest request) {
-            // SELECT JOIN
-            var query = from p in _context.Products
-                        join pt in _context.ProductTranslations on p.id equals pt.productId
-                        join pic in _context.ProductInCategories 
-                            on p.id equals pic.productId
-                        join c in _context.Categories on pic.categoryId equals c.id
-                        select new {p, pt, pic};
+        public async Task<PaginationSerializer<ProductListSerializer>> 
+            ProductPaginationListView(ProductPaginationListSerializer request) {
+                // SELECT JOIN
+                var query = from p in _context.Products
+                            join pt in _context.ProductTranslations 
+                                on p.id equals pt.productId
+                            join pic in _context.ProductInCategories 
+                                on p.id equals pic.productId
+                            join c in _context.Categories on pic.categoryId equals c.id
+                            select new {p, pt, pic};
 
-            // Fillter
-            if (!string.IsNullOrEmpty(request.keyword))
-                query = query.Where(x => x.pt.name.Contains(request.keyword));
+                // Fillter
+                if (!string.IsNullOrEmpty(request.keyword))
+                    query = query.Where(x => x.pt.name.Contains(request.keyword));
 
-            if (request.categoryIds.Count > 0)
-                query = query.Where(x => request.categoryIds.Contains(x.pic.categoryId));
+                if (request.categoryIds.Count > 0)
+                    query = query.Where(x => request.categoryIds
+                                .Contains(x.pic.categoryId));
 
-            // Pagination
-            int totalRow = await query.CountAsync();
-            var data = await query.Skip((request.pageIndex - 1) * request.pageSize)
-                .Take(request.pageSize)
-                .Select(x => new ProductViewModel() {
-                    id = x.p.id,
-                    name = x.pt.name,
-                    brief = x.pt.brief,
-                    title = x.pt.title,
-                    price = x.p.price,
-                    originalPrice = x.p.originalPrice,
-                    languageId = x.pt.languageId,
-                    seoAlias = x.pt.seoAlias,
-                    stock = x.p.stock,
-                    viewCount = x.p.viewCount,
-                }).ToListAsync();
+                // Pagination
+                int totalRow = await query.CountAsync();
+                var data = await query.Skip((request.pageIndex - 1) * request.pageSize)
+                    .Take(request.pageSize)
+                    .Select(x => new ProductListSerializer() {
+                        id = x.p.id,
+                        name = x.pt.name,
+                        brief = x.pt.brief,
+                        title = x.pt.title,
+                        price = x.p.price,
+                        originalPrice = x.p.originalPrice,
+                        languageId = x.pt.languageId,
+                        seoAlias = x.pt.seoAlias,
+                        stock = x.p.stock,
+                        viewCount = x.p.viewCount,
+                    }).ToListAsync();
 
-            // Select and projection
-            var pageResult = new PagedResult<ProductViewModel>() {
-                Items = data,
-                totalRecord = totalRow,
-            };
+                // Select and projection
+                var pageResult = new PaginationSerializer<ProductListSerializer>() {
+                    Items = data,
+                    totalRecord = totalRow,
+                };
 
-            return pageResult;
+                return pageResult;
         }
 
         public async Task<int> RemoveImages(int imageId) {
@@ -149,7 +151,7 @@ namespace applestore.Application.Modules.Products {
             return await _context.SaveChangesAsync();
         }
 
-        public async Task<int> update(ProductUpdateRequest request) {
+        public async Task<int> update(ProductUpdateSerializer request) {
             var product = await _context.Products.FindAsync(request.id);
             var productTranslation = await _context
                 .ProductTranslations.FirstOrDefaultAsync(
