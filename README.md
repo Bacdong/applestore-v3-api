@@ -87,6 +87,25 @@ git push -u Main master (push to Gitlab)
 ```
 
 
+### Setup The Trust HTTPs Certificate for Linux ###
+- Setup Certificate on Local Machine
+```
+cd OpenSSL
+sudo apt install libnss3-tools
+pk12util -d sql:$HOME/.pki/nssdb -i localhost.pfx
+certutil -d sql:$HOME/.pki/nssdb -A -t "P,," -n 'dev cert' -i localhost.crt
+```
+
+- Creating a basic certificate using OpenSSL
+```
+openssl req -new -x509 -newkey rsa:2048 -keyout localhost.key -out localhost.cer -days 365 -subj /CN=localhost
+openssl pkcs12 -export -out localhost.pfx -inkey localhost.key -in localhost.cer
+openssl req -config localhost.conf -new -x509 -sha256 -newkey rsa:2048 -nodes \
+    -keyout localhost.key -days 3650 -out localhost.crt
+openssl pkcs12 -export -out localhost.pfx -inkey localhost.key -in localhost.crt
+```
+
+
 ### Project Start ###
 ```
 dotnet watch run
