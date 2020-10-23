@@ -88,6 +88,9 @@ git push -u Main master (push to Gitlab)
 
 
 ### Setup The Trust HTTPs Certificate for Linux ###
+- Reference Link
+[Trust HTTPs Certificate](https://andrewlock.net/creating-and-trusting-a-self-signed-certificate-on-linux-for-use-in-kestrel-and-asp-net-core/)
+
 - Setup Certificate on Local Machine
 ```
 cd OpenSSL
