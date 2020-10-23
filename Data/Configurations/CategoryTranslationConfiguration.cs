@@ -10,7 +10,7 @@ namespace applestore.Data.Configurations
             builder.HasKey(x => x.id);
             builder.Property(x => x.id).UseIdentityColumn();
             builder.Property(x => x.name).IsRequired().HasMaxLength(200);
-            builder.Property(x => x.seoAlias).IsRequired().HasMaxLength(200);
+            builder.Property(x => x.slug).IsRequired().HasMaxLength(200);
             builder.Property(x => x.brief).HasMaxLength(500);
             builder.Property(x => x.title).HasMaxLength(200);
             builder.Property(x => x.languageId).IsUnicode(false)

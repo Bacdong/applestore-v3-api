@@ -6,7 +6,7 @@ namespace applestore.Data.Entity {
         public string brief {get; set;}
         public string title {get; set;}
         public int languageId {get; set;}
-        public string seoAlias {get; set;}
+        public string slug {get; set;}
 
         public Category category {get; set;}
 

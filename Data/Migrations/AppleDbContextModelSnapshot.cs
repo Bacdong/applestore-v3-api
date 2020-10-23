@@ -232,13 +232,13 @@ namespace applestore.Data.Migrations
                         {
                             Id = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "47f921ca-0242-4c3d-9ad2-436611a32692",
+                            ConcurrencyStamp = "a1b3e5d1-123d-4a2f-836c-065c396d6af3",
                             Email = "duongdong2203@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "duongdong2203@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAENcJlkz8l0Pnu9uPzVLCCaRcsZsoRJ0vTMfnEYbkYKthaqSa/uRdhpfLhXtVGYt7xw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPZ5s6c7vKQDRVJaSyxTWGGCacb7O+drcb9Nzzcuc5VY+i716X+xt8v9cUSa1fhegA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -276,7 +276,7 @@ namespace applestore.Data.Migrations
                         new
                         {
                             Id = new Guid("8d04dce2-969a-435d-bba4-df3f325983dc"),
-                            ConcurrencyStamp = "813e5b0a-b820-4873-a1dd-11d640e4394f",
+                            ConcurrencyStamp = "07b5969b-a423-4848-85b1-2ebf6d0e7498",
                             Name = "admin",
                             NormalizedName = "admin",
                             brief = "Administrator role"
@@ -394,7 +394,7 @@ namespace applestore.Data.Migrations
                         .HasColumnType("character varying(200)")
                         .HasMaxLength(200);
 
-                    b.Property<string>("seoAlias")
+                    b.Property<string>("slug")
                         .IsRequired()
                         .HasColumnType("character varying(200)")
                         .HasMaxLength(200);
@@ -419,7 +419,7 @@ namespace applestore.Data.Migrations
                             categoryId = 1,
                             languageId = 1,
                             name = "iPhone",
-                            seoAlias = "iphone",
+                            slug = "iphone",
                             title = "Smartphone"
                         },
                         new
@@ -429,7 +429,7 @@ namespace applestore.Data.Migrations
                             categoryId = 1,
                             languageId = 2,
                             name = "Điện thoại",
-                            seoAlias = "dien-thoai",
+                            slug = "dien-thoai",
                             title = "Điện thoại thông minh"
                         },
                         new
@@ -439,7 +439,7 @@ namespace applestore.Data.Migrations
                             categoryId = 2,
                             languageId = 1,
                             name = "iPad",
-                            seoAlias = "ipad",
+                            slug = "ipad",
                             title = "Tablet"
                         },
                         new
@@ -449,7 +449,7 @@ namespace applestore.Data.Migrations
                             categoryId = 2,
                             languageId = 2,
                             name = "Máy tính bảng",
-                            seoAlias = "may-tinh-bang",
+                            slug = "may-tinh-bang",
                             title = "Máy tính bảng thông minh"
                         },
                         new
@@ -459,7 +459,7 @@ namespace applestore.Data.Migrations
                             categoryId = 3,
                             languageId = 1,
                             name = "Macbook",
-                            seoAlias = "macbook",
+                            slug = "macbook",
                             title = "Macbook"
                         },
                         new
@@ -469,7 +469,7 @@ namespace applestore.Data.Migrations
                             categoryId = 3,
                             languageId = 2,
                             name = "Máy tính xách tay",
-                            seoAlias = "may-tinh-xach-tay",
+                            slug = "may-tinh-xach-tay",
                             title = "Máy tính xách tay"
                         },
                         new
@@ -479,7 +479,7 @@ namespace applestore.Data.Migrations
                             categoryId = 4,
                             languageId = 1,
                             name = "Watch",
-                            seoAlias = "apple-watch",
+                            slug = "apple-watch",
                             title = "Apple Watch"
                         },
                         new
@@ -489,7 +489,7 @@ namespace applestore.Data.Migrations
                             categoryId = 4,
                             languageId = 2,
                             name = "Đồng hồ",
-                            seoAlias = "dong-ho",
+                            slug = "dong-ho",
                             title = "Đồng hồ thông minh"
                         });
                 });
@@ -630,21 +630,18 @@ namespace applestore.Data.Migrations
                     b.Property<DateTime>("created")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp without time zone")
-                        .HasDefaultValue(new DateTime(2020, 10, 20, 1, 57, 45, 917, DateTimeKind.Utc).AddTicks(2342));
+                        .HasDefaultValue(new DateTime(2020, 10, 23, 4, 21, 21, 134, DateTimeKind.Utc).AddTicks(5811));
+
+                    b.Property<int>("inventory")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasDefaultValue(0);
 
                     b.Property<decimal>("originalPrice")
                         .HasColumnType("numeric");
 
                     b.Property<decimal>("price")
                         .HasColumnType("numeric");
-
-                    b.Property<string>("seoAlias")
-                        .HasColumnType("text");
-
-                    b.Property<int>("stock")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasDefaultValue(0);
 
                     b.Property<int>("viewCount")
                         .ValueGeneratedOnAdd()
@@ -659,11 +656,10 @@ namespace applestore.Data.Migrations
                         new
                         {
                             id = 1,
-                            created = new DateTime(2020, 10, 20, 1, 57, 45, 995, DateTimeKind.Utc).AddTicks(994),
+                            created = new DateTime(2020, 10, 23, 4, 21, 21, 206, DateTimeKind.Utc).AddTicks(6682),
+                            inventory = 100,
                             originalPrice = 800m,
                             price = 868m,
-                            seoAlias = "iphone-11-promax",
-                            stock = 100,
                             viewCount = 0
                         });
                 });
@@ -678,7 +674,7 @@ namespace applestore.Data.Migrations
                     b.Property<DateTime>("created")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp without time zone")
-                        .HasDefaultValue(new DateTime(2020, 10, 20, 1, 57, 45, 985, DateTimeKind.Utc).AddTicks(1123));
+                        .HasDefaultValue(new DateTime(2020, 10, 23, 4, 21, 21, 197, DateTimeKind.Utc).AddTicks(1654));
 
                     b.Property<string>("imagePath")
                         .IsRequired()
@@ -746,7 +742,7 @@ namespace applestore.Data.Migrations
                     b.Property<int>("productId")
                         .HasColumnType("integer");
 
-                    b.Property<string>("seoAlias")
+                    b.Property<string>("slug")
                         .IsRequired()
                         .HasColumnType("character varying(200)")
                         .HasMaxLength(200);
@@ -771,7 +767,7 @@ namespace applestore.Data.Migrations
                             languageId = 1,
                             name = "iPhone 11 Pro Max",
                             productId = 1,
-                            seoAlias = "iphone-11-promax",
+                            slug = "iphone-11-promax",
                             title = "Smartphone Apple"
                         },
                         new
@@ -781,7 +777,7 @@ namespace applestore.Data.Migrations
                             languageId = 2,
                             name = "iPhone 11 Pro Max",
                             productId = 1,
-                            seoAlias = "iphone-11-promax",
+                            slug = "iphone-11-promax",
                             title = "Điện thoại thông minh Apple"
                         });
                 });

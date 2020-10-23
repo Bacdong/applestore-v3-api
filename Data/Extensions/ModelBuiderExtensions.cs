@@ -51,7 +51,7 @@ namespace applestore.Data.Extensions {
                     categoryId=1,
                     name="iPhone", 
                     languageId=1, 
-                    seoAlias="iphone", 
+                    slug="iphone", 
                     brief="Smartphone Apple",
                     title="Smartphone"},
 
@@ -60,7 +60,7 @@ namespace applestore.Data.Extensions {
                     categoryId=1,
                     name="Điện thoại", 
                     languageId=2, 
-                    seoAlias="dien-thoai", 
+                    slug="dien-thoai", 
                     brief="Điện thoại thông minh Apple",
                     title="Điện thoại thông minh"},
 
@@ -69,7 +69,7 @@ namespace applestore.Data.Extensions {
                     categoryId=2,
                     name="iPad", 
                     languageId=1, 
-                    seoAlias="ipad", 
+                    slug="ipad", 
                     brief="Tablet Apple",
                     title="Tablet"},
 
@@ -78,7 +78,7 @@ namespace applestore.Data.Extensions {
                     categoryId=2,
                     name="Máy tính bảng", 
                     languageId=2, 
-                    seoAlias="may-tinh-bang", 
+                    slug="may-tinh-bang", 
                     brief="Máy tính bảng thông minh Apple",
                     title="Máy tính bảng thông minh"},
 
@@ -87,7 +87,7 @@ namespace applestore.Data.Extensions {
                     categoryId=3,
                     name="Macbook", 
                     languageId=1, 
-                    seoAlias="macbook", 
+                    slug="macbook", 
                     brief="Macbook Apple",
                     title="Macbook"},
 
@@ -96,7 +96,7 @@ namespace applestore.Data.Extensions {
                     categoryId=3,
                     name="Máy tính xách tay", 
                     languageId=2, 
-                    seoAlias="may-tinh-xach-tay", 
+                    slug="may-tinh-xach-tay", 
                     brief="Máy tính xách tay Apple",
                     title="Máy tính xách tay"},
 
@@ -105,7 +105,7 @@ namespace applestore.Data.Extensions {
                     categoryId=4,
                     name="Watch", 
                     languageId=1, 
-                    seoAlias="apple-watch", 
+                    slug="apple-watch", 
                     brief="Apple Watch",
                     title="Apple Watch"},
 
@@ -114,7 +114,7 @@ namespace applestore.Data.Extensions {
                     categoryId=4,
                     name="Đồng hồ", 
                     languageId=2, 
-                    seoAlias="dong-ho", 
+                    slug="dong-ho", 
                     brief="Đồng hồ thông minh Apple",
                     title="Đồng hồ thông minh", });
 
@@ -124,8 +124,7 @@ namespace applestore.Data.Extensions {
                     created=DateTime.UtcNow, 
                     originalPrice=800, 
                     price=868,
-                    seoAlias="iphone-11-promax",
-                    stock=100,
+                    inventory=100,
                     viewCount=0, });
 
             modelBuilder.Entity<ProductTranslation>().HasData(
@@ -136,7 +135,7 @@ namespace applestore.Data.Extensions {
                     brief="Smartphone Apple",
                     title="Smartphone Apple",
                     languageId=1,
-                    seoAlias="iphone-11-promax",},
+                    slug="iphone-11-promax",},
 
                 new ProductTranslation() {
                     id=2,
@@ -145,7 +144,7 @@ namespace applestore.Data.Extensions {
                     brief="Điện thoại thông minh Apple",
                     title="Điện thoại thông minh Apple",
                     languageId=2,
-                    seoAlias="iphone-11-promax", });
+                    slug="iphone-11-promax", });
         
             modelBuilder.Entity<ProductInCategory>().HasData(
                 new ProductInCategory() {productId=1, categoryId=1, } 

@@ -7,8 +7,8 @@ namespace applestore.APIs.Modules.Product.Serializers {
         public string title {get; set;}
         public decimal price {get; set;}
         public decimal originalPrice {get; set;}
-        public int stock {get; set;}
-        public string seoAlias {get; set;}
+        public int inventory {get; set;}
+        public string slug {get; set;}
         public int languageId {get; set;}
 
         public IFormFile thumbnail {get; set;}

@@ -12,9 +12,9 @@ namespace applestore.Application.Modules.Products {
 
         Task<int> delete(int productId);
 
-        Task<bool> updatePrice(int productId, decimal newPrice);
+        Task<bool> PriceUpdate(int productId, decimal newPrice);
 
-        Task<bool> updateStock(int productId, int newQuantity);
+        Task<bool> InventoryUpdate(int productId, int newQuantity);
 
         Task addViewCount(int productId);
 

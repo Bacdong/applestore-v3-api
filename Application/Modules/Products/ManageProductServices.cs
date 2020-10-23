@@ -37,16 +37,15 @@ namespace applestore.Application.Modules.Products {
             var product = new Product() {
                 price = request.price,
                 originalPrice = request.originalPrice,
-                stock = request.stock,
+                inventory = request.inventory,
                 viewCount = 0,
                 created = DateTime.UtcNow,
-                seoAlias = request.seoAlias,
                 productTranslations = new List<ProductTranslation>() {
                     new ProductTranslation() {
                         name = request.name,
                         brief = request.brief,
                         title = request.title,
-                        seoAlias = request.seoAlias,
+                        slug = request.slug,
                         languageId = request.languageId,
                     }
                 }
@@ -126,8 +125,8 @@ namespace applestore.Application.Modules.Products {
                         price = x.p.price,
                         originalPrice = x.p.originalPrice,
                         languageId = x.pt.languageId,
-                        seoAlias = x.pt.seoAlias,
-                        stock = x.p.stock,
+                        slug = x.pt.slug,
+                        inventory = x.p.inventory,
                         viewCount = x.p.viewCount,
                     }).ToListAsync();
 
@@ -163,7 +162,7 @@ namespace applestore.Application.Modules.Products {
             productTranslation.name = request.name;
             productTranslation.brief = request.brief;
             productTranslation.title = request.title;
-            productTranslation.seoAlias = request.seoAlias;
+            productTranslation.slug = request.slug;
 
             // Save images
             if (request.thumbnail != null) {
@@ -192,7 +191,7 @@ namespace applestore.Application.Modules.Products {
             return await _context.SaveChangesAsync();
         }
 
-        public async Task<bool> updatePrice(int productId, decimal newPrice) {
+        public async Task<bool> PriceUpdate(int productId, decimal newPrice) {
             var product = await _context.Products.FindAsync(productId);
             if (product == null)
                 throw new AppleException($"Product {productId} not found, try again!");
@@ -202,12 +201,12 @@ namespace applestore.Application.Modules.Products {
             return await _context.SaveChangesAsync() > 0;
         }
 
-        public async Task<bool> updateStock(int productId, int newQuantity) {
+        public async Task<bool> InventoryUpdate(int productId, int newQuantity) {
             var product = await _context.Products.FindAsync(productId);
             if (product == null)
                 throw new AppleException($"Product {productId} not found, try again!");
 
-            product.stock += newQuantity;
+            product.inventory += newQuantity;
 
             return await _context.SaveChangesAsync() > 0;
         }

@@ -31,8 +31,8 @@ namespace applestore.Application.Modules.Products {
                     price = x.p.price,
                     originalPrice = x.p.originalPrice,
                     languageId = x.pt.languageId,
-                    seoAlias = x.pt.seoAlias,
-                    stock = x.p.stock,
+                    slug = x.pt.slug,
+                    inventory = x.p.inventory,
                     viewCount = x.p.viewCount,
                 }).ToListAsync();
 
@@ -66,8 +66,8 @@ namespace applestore.Application.Modules.Products {
                         price = x.p.price,
                         originalPrice = x.p.originalPrice,
                         languageId = x.pt.languageId,
-                        seoAlias = x.pt.seoAlias,
-                        stock = x.p.stock,
+                        slug = x.pt.slug,
+                        inventory = x.p.inventory,
                         viewCount = x.p.viewCount,
                     }).ToListAsync();
 
