@@ -13,6 +13,7 @@ namespace applestore.Data.Configurations {
             builder.Property(x => x.inventory).IsRequired().HasDefaultValue(0);
             builder.Property(x => x.viewCount).IsRequired().HasDefaultValue(0);
             builder.Property(x => x.created).HasDefaultValue(DateTime.UtcNow);
+            builder.Property(x => x.updated).HasDefaultValue(DateTime.UtcNow);
         }
     }
 }

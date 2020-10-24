@@ -7,6 +7,7 @@ namespace applestore.Data.Entity {
         public string imagePath {get; set;}
         public bool isDefault {get; set;}
         public DateTime created {get; set;}
+        public DateTime updated {get; set;}
         public int sortOrder {get; set;}
 
         public Product product {get; set;}

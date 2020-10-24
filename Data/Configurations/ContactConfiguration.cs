@@ -1,3 +1,4 @@
+using System;
 using applestore.Data.Entity;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +13,7 @@ namespace applestore.Data.Configurations {
             builder.Property(x => x.email).HasMaxLength(200).IsRequired();
             builder.Property(x => x.phone).HasMaxLength(200).IsRequired();
             builder.Property(x => x.message).IsRequired();
+            builder.Property(x => x.created).HasDefaultValue(DateTime.UtcNow);
         }
     }
 }

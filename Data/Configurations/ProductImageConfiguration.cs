@@ -12,6 +12,7 @@ namespace applestore.Data.Configurations {
             builder.Property(x => x.id).UseIdentityColumn();
             builder.Property(x => x.imagePath).HasMaxLength(200).IsRequired(true);
             builder.Property(x => x.created).HasDefaultValue(DateTime.UtcNow);
+            builder.Property(x => x.updated).HasDefaultValue(DateTime.UtcNow);
 
             builder.HasOne(x => x.product)
                 .WithMany(x => x.productImages)

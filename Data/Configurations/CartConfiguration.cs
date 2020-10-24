@@ -1,3 +1,4 @@
+using System;
 using applestore.Data.Entity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -9,6 +10,8 @@ namespace applestore.Data.Configurations {
 
             builder.HasKey(x => x.id);
             builder.Property(x => x.id).UseIdentityColumn();
+            builder.Property(x => x.created).HasDefaultValue(DateTime.UtcNow);
+            builder.Property(x => x.updated).HasDefaultValue(DateTime.UtcNow);
             
             builder.HasOne(x => x.product)
                 .WithMany(x => x.carts)

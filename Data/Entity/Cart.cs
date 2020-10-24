@@ -13,6 +13,8 @@ namespace applestore.Data.Entity {
 
         public DateTime created {get; set;}
 
+        public DateTime updated {get; set;}
+
         public Auth auth {get; set;}
     }
 }

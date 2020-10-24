@@ -9,6 +9,7 @@ namespace applestore.Data.Entity {
         public int inventory {get; set;}
         public int viewCount {get; set;}
         public DateTime created {get; set;}
+        public DateTime updated {get; set;}
 
         public List<ProductInCategory> productInCategories {get; set;}
 

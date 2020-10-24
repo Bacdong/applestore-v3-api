@@ -1,3 +1,4 @@
+using System;
 using applestore.Data.Enum;
 
 namespace applestore.Data.Entity {
@@ -8,5 +9,7 @@ namespace applestore.Data.Entity {
         public string phone {get; set;}
         public string message {get; set;}
         public Status status {get; set;}
+
+        public DateTime created {get; set;}
     }
 }
