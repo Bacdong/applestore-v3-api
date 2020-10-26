@@ -123,5 +123,5 @@ dotnet watch run
 - [Duong Bac Dong](https://github.com/Bacdong)
 - [Bui Trung Hau](https://github.com/BuiTrungHau1312)
 - [Luu Duc Hoa](https://github.com/Luuduchoa2504)
-- [Le Nguyen Anh Duc](https://github.com/)
+- [Le Nguyen Anh Duc](https://github.com/anhducjav)
 - [Pham Dang Hoang](https://github.com/PhamDangHoang1211)
