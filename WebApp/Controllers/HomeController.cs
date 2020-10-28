@@ -1,5 +1,5 @@
 ﻿using System.Diagnostics;
-using applestore.Models;
+using applestore.WebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
