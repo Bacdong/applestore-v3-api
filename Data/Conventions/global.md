@@ -12,6 +12,24 @@
 
 
 
+### Bảng `Users` ###
+
+| Tên cột                  | Kiểu dữ liệu    | Thuộc tính       | Giá trị mặc định | Mô tả                            |
+| ------------------------ | --------------- | ---------------- | ---------------- | -------------------------------- |
+| firstName                | varchar(32)     | not null         |                  | Họ                               |
+| lastName                 | varchar(32)     | not null         |                  | Tên                              |
+| address                  | varchar(128)    |                  |                  | địa chỉ                          |
+
+
+
+### Bảng `Roles` ###
+
+| Tên cột                  | Kiểu dữ liệu    | Thuộc tính       | Giá trị mặc định | Mô tả                            |
+| ------------------------ | --------------- | ---------------- | ---------------- | -------------------------------- |
+| brief                    | varchar(64)     |                  |                  | Vai Trò                          |
+
+
+
 ### Bảng `Carts` ###
 
 | Tên cột                  | Kiểu dữ liệu    | Thuộc tính       | Giá trị mặc định | Mô tả                            |
@@ -22,6 +40,7 @@
 | price                    | decimal         |                  |                  | Tổng tiền                        |
 | userId                   | integer         | foreign key      |                  | ID của user                      |
 | created                  | DateTime        |                  | DateTime.UtcNow  | Ngày tạo giỏ hàng                |
+| updated                  | DateTime        |                  | DateTime.UtcNow  | Ngày update giỏ hàng             |
 
 
 
@@ -32,8 +51,8 @@
 | id                       | integer         | primary key      |                  | ID loại sản phẩm                 |
 | sortOrder                | integer         |                  |                  |                                  |
 | isPublic                 | boolean         | not null         | True             | Hiển thị sản phẩm                |
-| status                   | varchar(32)     |                  | active           | Trạng thái                       |
 | parentId                 | integer         |                  |                  | ID của category cha              |
+| status                   | varchar(32)     |                  | active           | Trạng thái                       |
 | productInCategories      | integer         | foreign key      |                  | ID của sản phẩm thuộc category   |
 
 
@@ -48,7 +67,7 @@
 | brief                    | varchar(32)     |                  |                  | Mô tả ngắn                       |
 | title                    | varchar(64)     |                  |                  | Tiêu đề loại sản phẩm            |
 | languageId               | integer         | foreign key      |                  | ID ngôn ngữ                      |
-| seoAlias                 | varchar(32)     | not null         |                  | Slug                             |
+| slug                     | varchar(32)     | not null         |                  | Slug                             |
 
 
 
@@ -62,6 +81,7 @@
 | phone                    | varchar(32)     | not null         |                  | SDT của người gửi liên hệ        |
 | message                  | varchar(256)    | not null         |                  | Nội dung liên hệ                 |
 | status                   | varchar(32)     | Status           | Status.pending   | Trạng thái                       |
+| created                  | DateTime        |                  | DateTime.UtcNow  | Ngày liên lạc                    |
 
 
 
@@ -82,6 +102,7 @@
 | ------------------------ | --------------- | ---------------- | ---------------- | -------------------------------- |
 | id                       | integer         | primary key      |                  | ID của đơn hàng                  |
 | created                  | DateTime        |                  | DateTime.UtcNow  | Ngày tạo                         |
+| updated                  | DateTime        |                  | DateTime.UtcNow  | Ngày update                      |
 | userId                   | integer         | foreign key      |                  | ID người đặt                     |
 | shippingName             | varchar(32)     | not null         |                  | Tên người đặt                    |
 | shippingAddress          | varchar(64)     | not null         |                  | Địa chỉ                          |
@@ -109,13 +130,27 @@
 | id                       | integer         | primary key      |                  | ID của sản phẩm                  |
 | price                    | decimal         | not null         | 0                | Giá của sản phẩm                 |
 | originalPrice            | decimal         | not null         | 0                | Giá gốc của sản phẩm             |
-| stock                    | integer         | not null         | 0                | Kho                              |
+| inventory                | integer         | not null         | 0                | Hàng tổn kho                     |
 | viewCount                | integer         | not null         | 0                | Số lượt xem của sản phẩm         |
 | created                  | datetime        |                  | DateTime.UtcNow  | Thời gian tạo sản phẩm           |
-| seoAlias                 | varchar(32)     |                  |                  | Tên sản phẩm                     |
+| updated                  | datetime        |                  | DateTime.UtcNow  | Thời gian update sản phẩm        |
 | productInCategories      | integer         | foreign key      |                  | ID của categories                |
 | orderLines               | integer         | foreign key      |                  | ID của chi tiết sản phẩm         |
 | carts                    | integer         | foreign key      |                  | ID giỏ hàng                      |
+
+
+
+### Bảng `ProductImages` ###
+
+| Tên cột                  | Kiểu dữ liệu    | Thuộc tính       | Giá trị mặc định | Mô tả                            |
+| ------------------------ | --------------- | ---------------- | ---------------- | -------------------------------- |
+| id                       | integer         | primary key      |                  | ID hình ảnh                      |
+| productId                | integer         | foreign key      |                  | ID sản phẩm                      |
+| imagePath                | varchar(128)    | not null         |                  | Đường dẫn của hình ảnh           |
+| isDefault                | boolean         |                  |                  | Chọn mặc định                    |
+| created                  | integer         |                  | DateTime.UtcNow  | Ngày thêm hình ảnh               |
+| updated                  | datetime        |                  | DateTime.UtcNow  | Ngày update hình ảnh             |
+| sortOrder                | varchar(32)     |                  |                  |                                  |
 
 
 
@@ -138,7 +173,7 @@
 | brief                    | varchar(64)     |                  |                  | Mô tả ngắn                       |
 | title                    | varchar(64)     |                  |                  | Tiêu đề                          |
 | languageId               | integer         | foreign key      | 1                | ID ngôn ngữ                      |
-| seoAlias                 | varchar(32)     | not null         |                  | Slug                             |
+| slug                     | varchar(32)     | not null         |                  | Slug                             |
 
 
 
