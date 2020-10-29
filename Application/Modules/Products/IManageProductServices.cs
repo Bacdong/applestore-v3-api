@@ -26,7 +26,7 @@ namespace applestore.Application.Modules.Products {
 
         Task<List<ProductImageViewModel>> GetListImage(int productId);
 
-        Task<PaginationSerializer<ProductListSerializer>> ProductPaginationListView(
+        Task<PaginationSerializer<ProductSerializer>> ProductPaginationListView(
             APIs.Modules.Product.Serializers.ProductPaginationListSerializer request);
     }
 }

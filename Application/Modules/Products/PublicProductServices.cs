@@ -14,7 +14,7 @@ namespace applestore.Application.Modules.Products {
             _context = context;
         }
 
-        public async Task<List<ProductListSerializer>> ProductListView() {
+        public async Task<List<ProductSerializer>> ProductListView() {
             var query = from p in _context.Products
                         join pt in _context.ProductTranslations 
                             on p.id equals pt.productId
@@ -23,7 +23,7 @@ namespace applestore.Application.Modules.Products {
                         join c in _context.Categories on pic.categoryId equals c.id
                         select new {p, pt, pic};
 
-            var data = await query.Select(x => new ProductListSerializer() {
+            var data = await query.Select(x => new ProductSerializer() {
                     id = x.p.id,
                     name = x.pt.name,
                     brief = x.pt.brief,
@@ -39,7 +39,7 @@ namespace applestore.Application.Modules.Products {
             return data;
         }
 
-        public async Task<PaginationSerializer<ProductListSerializer>> 
+        public async Task<PaginationSerializer<ProductSerializer>> 
             CategoryListByIdView(ProductPaginationByCategoryIdListSerializer request) {
                 // SELECT JOIN
                 var query = from p in _context.Products
@@ -58,7 +58,7 @@ namespace applestore.Application.Modules.Products {
                 int totalRow = await query.CountAsync();
                 var data = await query.Skip((request.pageIndex - 1) * request.pageSize)
                     .Take(request.pageSize)
-                    .Select(x => new ProductListSerializer() {
+                    .Select(x => new ProductSerializer() {
                         id = x.p.id,
                         name = x.pt.name,
                         brief = x.pt.brief,
@@ -72,7 +72,7 @@ namespace applestore.Application.Modules.Products {
                     }).ToListAsync();
 
                 // Select and projection
-                var pageResult = new PaginationSerializer<ProductListSerializer>() {
+                var pageResult = new PaginationSerializer<ProductSerializer>() {
                     Items = data,
                     totalRecord = totalRow,
                 };

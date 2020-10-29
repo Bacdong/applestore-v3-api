@@ -5,9 +5,9 @@ using applestore.APIs.Modules.Product.Serializers;
 
 namespace applestore.Application.Modules.Products {
     public interface IPublicProductServices {
-        Task<PaginationSerializer<ProductListSerializer>> CategoryListByIdView(
+        Task<PaginationSerializer<ProductSerializer>> CategoryListByIdView(
             ProductPaginationByCategoryIdListSerializer request); 
 
-        Task<List<ProductListSerializer>> ProductListView();
+        Task<List<ProductSerializer>> ProductListView();
     }
 }

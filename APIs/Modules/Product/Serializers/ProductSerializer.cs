@@ -1,7 +1,7 @@
 using System;
 
 namespace applestore.APIs.Modules.Product.Serializers {
-    public class ProductListSerializer {
+    public class ProductSerializer {
         public int id {get; set;}
         public string name {get; set;}
         public string brief {get; set;}

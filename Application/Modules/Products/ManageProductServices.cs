@@ -94,7 +94,7 @@ namespace applestore.Application.Modules.Products {
                     }).ToListAsync();   
         }
 
-        public async Task<PaginationSerializer<ProductListSerializer>> 
+        public async Task<PaginationSerializer<ProductSerializer>> 
             ProductPaginationListView(ProductPaginationListSerializer request) {
                 // SELECT JOIN
                 var query = from p in _context.Products
@@ -117,7 +117,7 @@ namespace applestore.Application.Modules.Products {
                 int totalRow = await query.CountAsync();
                 var data = await query.Skip((request.pageIndex - 1) * request.pageSize)
                     .Take(request.pageSize)
-                    .Select(x => new ProductListSerializer() {
+                    .Select(x => new ProductSerializer() {
                         id = x.p.id,
                         name = x.pt.name,
                         brief = x.pt.brief,
@@ -131,7 +131,7 @@ namespace applestore.Application.Modules.Products {
                     }).ToListAsync();
 
                 // Select and projection
-                var pageResult = new PaginationSerializer<ProductListSerializer>() {
+                var pageResult = new PaginationSerializer<ProductSerializer>() {
                     Items = data,
                     totalRecord = totalRow,
                 };
