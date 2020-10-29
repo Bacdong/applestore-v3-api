@@ -18,7 +18,7 @@
 | ------------------------ | --------------- | ---------------- | ---------------- | ------------------------------------ |
 | firstName                | varchar(32)     | not null         |                  | Họ                                   |
 | lastName                 | varchar(32)     | not null         |                  | Tên                                  |
-| address                  | varchar(128)    |                  |                  | địa chỉ                              |
+| address                  | varchar(128)    |                  |                  | Địa chỉ                              |
 
 
 
