@@ -60,6 +60,11 @@ dotnet tool install --global dotnet-ef
 dotnet tool update --global dotnet-ef
 ```
 
+* Troubleshoot .NET Core tool: `dotnet-ef does not exist`
+```
+export PATH=$HOME/.dotnet/tools:$PATH"
+```
+
 
 ### Migrations Database ###
 - Adding a migration:
