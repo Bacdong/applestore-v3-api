@@ -1621,19 +1621,19 @@
     ]
   },
   "packageFolders": {
-    "/home/bacdong/.nuget/packages/": {}
+    "/home/trunghau/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/bacdong/Code/project/applestore/applestore.csproj",
+      "projectUniqueName": "/home/trunghau/Code/dotnet/applestore_dotnet_core/applestore.csproj",
       "projectName": "applestore",
-      "projectPath": "/home/bacdong/Code/project/applestore/applestore.csproj",
-      "packagesPath": "/home/bacdong/.nuget/packages/",
-      "outputPath": "/home/bacdong/Code/project/applestore/obj/",
+      "projectPath": "/home/trunghau/Code/dotnet/applestore_dotnet_core/applestore.csproj",
+      "packagesPath": "/home/trunghau/.nuget/packages/",
+      "outputPath": "/home/trunghau/Code/dotnet/applestore_dotnet_core/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/bacdong/.nuget/NuGet/NuGet.Config"
+        "/home/trunghau/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"

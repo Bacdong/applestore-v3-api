@@ -9,5 +9,6 @@ namespace applestore.Application.Modules.Products {
             ProductPaginationByCategoryIdListSerializer request); 
 
         Task<List<ProductListSerializer>> ProductListView();
+        Task<ProductListSerializer> ProductDetailView(); 
     }
 }
