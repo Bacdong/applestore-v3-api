@@ -46,13 +46,6 @@
 /home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/applestore.TagHelpers.input.cache
 /home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/applestore.TagHelpers.output.cache
 /home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/applestore.RazorCoreGenerate.cache
-/home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs
-/home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/Razor/Views/Home/Privacy.cshtml.g.cs
-/home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/Razor/Views/Shared/Error.cshtml.g.cs
-/home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_Layout.cshtml.g.cs
-/home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_ValidationScriptsPartial.cshtml.g.cs
-/home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/Razor/Views/_ViewImports.cshtml.g.cs
-/home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/Razor/Views/_ViewStart.cshtml.g.cs
 /home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/applestore.RazorTargetAssemblyInfo.cache
 /home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/applestore.RazorTargetAssemblyInfo.cs
 /home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/applestore.Views.pdb
@@ -62,6 +55,7 @@
 /home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/applestore.dll
 /home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/applestore.pdb
 /home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/applestore.genruntimeconfig.cache
+<<<<<<< HEAD
 /home/hoa/Code/applestore_dotnet_core/bin/Debug/netcoreapp3.1/appsettings.Development.json
 /home/hoa/Code/applestore_dotnet_core/bin/Debug/netcoreapp3.1/appsettings.json
 /home/hoa/Code/applestore_dotnet_core/bin/Debug/netcoreapp3.1/Properties/launchSettings.json
@@ -126,3 +120,17 @@
 /home/hoa/Code/applestore_dotnet_core/obj/Debug/netcoreapp3.1/applestore.dll
 /home/hoa/Code/applestore_dotnet_core/obj/Debug/netcoreapp3.1/applestore.pdb
 /home/hoa/Code/applestore_dotnet_core/obj/Debug/netcoreapp3.1/applestore.genruntimeconfig.cache
+=======
+/home/bacdong/Code/project/applestore/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.Internal.dll
+/home/bacdong/Code/project/applestore/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+/home/bacdong/Code/project/applestore/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/home/bacdong/Code/project/applestore/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Core.dll
+/home/bacdong/Code/project/applestore/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Stores.dll
+/home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/Razor/WebApp/Views/Home/Index.cshtml.g.cs
+/home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/Razor/WebApp/Views/Home/Privacy.cshtml.g.cs
+/home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/Razor/WebApp/Views/Shared/Error.cshtml.g.cs
+/home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/Razor/WebApp/Views/Shared/_Layout.cshtml.g.cs
+/home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/Razor/WebApp/Views/Shared/_ValidationScriptsPartial.cshtml.g.cs
+/home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/Razor/WebApp/Views/_ViewImports.cshtml.g.cs
+/home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/Razor/WebApp/Views/_ViewStart.cshtml.g.cs
+>>>>>>> 7383115f9e48afc2da4b5d574cb0b8e06a138263

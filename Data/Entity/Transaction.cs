@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using applestore.Data.Enum;
 
 namespace applestore.Data.Entity {
@@ -14,5 +12,8 @@ namespace applestore.Data.Entity {
         public string message {get; set;}
         public TransactionStatus status {get; set;}
         public string provider {get; set;}
+        public Guid userId {get; set;}
+
+        public Auth auth {get; set;}
     }
 }

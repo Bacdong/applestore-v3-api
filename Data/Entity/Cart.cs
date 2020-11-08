@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace applestore.Data.Entity {
     public class Cart {
@@ -14,5 +12,9 @@ namespace applestore.Data.Entity {
         public Product product {get; set;}
 
         public DateTime created {get; set;}
+
+        public DateTime updated {get; set;}
+
+        public Auth auth {get; set;}
     }
 }

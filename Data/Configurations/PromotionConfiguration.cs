@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using applestore.Data.Entity;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +10,7 @@ namespace applestore.Data.Configurations {
             builder.HasKey(x => x.id);
             builder.Property(x => x.id).UseIdentityColumn();
             builder.Property(x => x.name).IsRequired();
+            builder.Property(x => x.startTime).HasDefaultValue(DateTime.UtcNow);
         }
     }
 }
