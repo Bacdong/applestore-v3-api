@@ -27,7 +27,7 @@ namespace applestore.Data.EF {
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
 
             // Seeding data for database
-            modelBuilder.Seed();
+            // modelBuilder.Seed();
             
             // base.OnModelCreating(modelBuilder);
         } 
