@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/bacdong/Code/project/applestore_dotnet_core/applestore.csproj": {}
+    "/home/bacdong/Code/project/applestore/applestore.csproj": {}
   },
   "projects": {
-    "/home/bacdong/Code/project/applestore_dotnet_core/applestore.csproj": {
+    "/home/bacdong/Code/project/applestore/applestore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/bacdong/Code/project/applestore_dotnet_core/applestore.csproj",
+        "projectUniqueName": "/home/bacdong/Code/project/applestore/applestore.csproj",
         "projectName": "applestore",
-        "projectPath": "/home/bacdong/Code/project/applestore_dotnet_core/applestore.csproj",
+        "projectPath": "/home/bacdong/Code/project/applestore/applestore.csproj",
         "packagesPath": "/home/bacdong/.nuget/packages/",
-        "outputPath": "/home/bacdong/Code/project/applestore_dotnet_core/obj/",
+        "outputPath": "/home/bacdong/Code/project/applestore/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/bacdong/.nuget/NuGet/NuGet.Config"
@@ -71,6 +71,10 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[3.1.4, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.6.3, )"
             }
           },
           "imports": [

@@ -48,6 +48,7 @@ dotnet add package Microsoft.Extensions.Configuration.Json
 dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore
 dotnet add package Microsoft.AspNetCore.Hosting
 dotnet add package Microsoft.AspNetCore.Http
+dotnet add package Swashbuckle.AspNetCore
 ```
 
 * EF Core Tools: `Installation`

@@ -136,3 +136,8 @@
 /home/bacdong/Code/project/applestore_dotnet_core/obj/Debug/netcoreapp3.1/applestore.dll
 /home/bacdong/Code/project/applestore_dotnet_core/obj/Debug/netcoreapp3.1/applestore.pdb
 /home/bacdong/Code/project/applestore_dotnet_core/obj/Debug/netcoreapp3.1/applestore.genruntimeconfig.cache
+/home/bacdong/Code/project/applestore/bin/Debug/netcoreapp3.1/Microsoft.OpenApi.dll
+/home/bacdong/Code/project/applestore/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.Swagger.dll
+/home/bacdong/Code/project/applestore/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.SwaggerGen.dll
+/home/bacdong/Code/project/applestore/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.SwaggerUI.dll
+/home/bacdong/Code/project/applestore/obj/Debug/netcoreapp3.1/applestore.MvcApplicationPartsAssemblyInfo.cs
