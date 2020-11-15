@@ -63,8 +63,9 @@ namespace applestore.Application.Modules.Products {
                 };
 
             _context.Products.Add(product);
+            await _context.SaveChangesAsync();
 
-            return await _context.SaveChangesAsync();
+            return product.id;
         }
 
         public async Task<int> delete(int productId) {
@@ -180,7 +181,8 @@ namespace applestore.Application.Modules.Products {
         public async Task<int> UpdateImages(int imageId, bool isDefault) {
             var images = _context.ProductImages.Where(x => x.id == imageId);
             if (images == null)
-                throw new AppleException($"Image {imageId} not found, try again!");
+                throw new AppleException($"Image {ima
+            //     return 0;geId} not found, try again!");
 
             var imageUpdate = await _context.ProductImages
                 .FirstOrDefaultAsync(x => x.id == imageId);
@@ -219,6 +221,12 @@ namespace applestore.Application.Modules.Products {
             await _storageService.SaveFileAsync(file.OpenReadStream(), fileName);
 
             return fileName;
+        }
+
+        public async Task<ProductSerializer> GetProductById(int productId) {
+            // var product = await _context.Products.FirstOrDefaultAsync(x => x.id == productId);
+            
+            // return product;
         }
     }
 }
