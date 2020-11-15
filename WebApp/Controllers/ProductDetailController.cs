@@ -18,9 +18,9 @@ namespace applestore.WebApp.Controllers {
 
         [HttpGet]
         public async Task<IActionResult> GetId(int id) {
-            var detail = await _publicProductServices.ProductDetailView();
+            var productInfo = await _publicProductServices.ProductDetailView();
 
-            return Ok(detail);
+            return Ok(productInfo);
         }
     }
 }
