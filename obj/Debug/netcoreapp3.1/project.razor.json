@@ -1,5 +1,5 @@
 {
-  "FilePath": "/home/bacdong/Code/project/applestore_dotnet_core/applestore.csproj",
+  "FilePath": "/home/bacdong/Code/project/applestore/applestore.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
@@ -14392,38 +14392,38 @@
   "RootNamespace": "applestore",
   "Documents": [
     {
-      "FilePath": "/home/bacdong/Code/project/applestore_dotnet_core/WebApp/Views/Shared/_Layout.cshtml",
+      "FilePath": "/home/bacdong/Code/project/applestore/WebApp/Views/Shared/_Layout.cshtml",
       "TargetPath": "WebApp\\Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/home/bacdong/Code/project/applestore_dotnet_core/WebApp/Views/Shared/Error.cshtml",
-      "TargetPath": "WebApp\\Views\\Shared\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/bacdong/Code/project/applestore_dotnet_core/WebApp/Views/_ViewStart.cshtml",
-      "TargetPath": "WebApp\\Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/bacdong/Code/project/applestore_dotnet_core/WebApp/Views/_ViewImports.cshtml",
-      "TargetPath": "WebApp\\Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/bacdong/Code/project/applestore_dotnet_core/WebApp/Views/Shared/_ValidationScriptsPartial.cshtml",
-      "TargetPath": "WebApp\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/bacdong/Code/project/applestore_dotnet_core/WebApp/Views/Home/Index.cshtml",
+      "FilePath": "/home/bacdong/Code/project/applestore/WebApp/Views/Home/Index.cshtml",
       "TargetPath": "WebApp\\Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/home/bacdong/Code/project/applestore_dotnet_core/WebApp/Views/Home/Privacy.cshtml",
+      "FilePath": "/home/bacdong/Code/project/applestore/WebApp/Views/Shared/_ValidationScriptsPartial.cshtml",
+      "TargetPath": "WebApp\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/bacdong/Code/project/applestore/WebApp/Views/Home/Privacy.cshtml",
       "TargetPath": "WebApp\\Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/bacdong/Code/project/applestore/WebApp/Views/Shared/Error.cshtml",
+      "TargetPath": "WebApp\\Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/bacdong/Code/project/applestore/WebApp/Views/_ViewStart.cshtml",
+      "TargetPath": "WebApp\\Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/bacdong/Code/project/applestore/WebApp/Views/_ViewImports.cshtml",
+      "TargetPath": "WebApp\\Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
     }
   ],

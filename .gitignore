@@ -1,2 +1,4 @@
 .vscode
 Data/Migrations
+bin
+obj
