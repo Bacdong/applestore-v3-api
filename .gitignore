@@ -1,3 +1,4 @@
 .vscode
 Data/Migrations
 obj/Debug
+applestore.csproj
