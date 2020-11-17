@@ -105,5 +105,10 @@ namespace applestore.Application.Modules.Products {
             return data;
             
         }
+
+        Task<PaginationSerializer<ProductListSerializer>> IPublicProductServices.CategoryListByIdView(ProductPaginationByCategoryIdListSerializer request)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
