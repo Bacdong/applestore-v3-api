@@ -32,6 +32,16 @@ echo "deb https://dbeaver.io/debs/dbeaver-ce /" | sudo tee /etc/apt/sources.list
 sudo apt-get update && sudo apt-get install dbeaver-ce
 ```
 
+### ASP.NET Core Update Latest Version ###
+- [ASP.NET Core 5.0](https://docs.microsoft.com/vi-vn/dotnet/core/install/linux-alpine)
+- [dotnet-install.sh](https://dot.net/v1/dotnet-install.sh.)
+```
+chmod +x ./dotnet-install.sh
+./dotnet-install.sh -c Current
+./dotnet-install.sh -c Current --runtime aspnetcore
+./dotnet-install.sh -c 5.0
+```
+
 
 ### Package Installation ###
 ```
