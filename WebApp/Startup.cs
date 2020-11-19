@@ -1,3 +1,4 @@
+using applestore.Application.Core;
 using applestore.Application.Modules.Products;
 using applestore.Data.EF;
 using applestore.Utilities.Constaints;
@@ -27,6 +28,8 @@ namespace applestore.WebApp {
 
             // Declare DI
             services.AddTransient<IPublicProductServices, PublicProductServices>();
+            services.AddTransient<IManageProductServices, ManageProductServices>();
+            services.AddTransient<IStorageServices, FileStorageServices>();
 
             services.AddSwaggerGen(c => {
                 c.SwaggerDoc("v1", new OpenApiInfo {

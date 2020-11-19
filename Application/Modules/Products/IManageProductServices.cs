@@ -24,7 +24,7 @@ namespace applestore.Application.Modules.Products {
 
         Task<int> RemoveImages(int imageId);
 
-        Task<ProductSerializer> GetProductById(int productId);
+        Task<ProductSerializer> GetProductById(int productId, int languageId);
 
         Task<List<ProductImageViewModel>> GetListImage(int productId);
 

@@ -181,8 +181,7 @@ namespace applestore.Application.Modules.Products {
         public async Task<int> UpdateImages(int imageId, bool isDefault) {
             var images = _context.ProductImages.Where(x => x.id == imageId);
             if (images == null)
-                throw new AppleException($"Image {ima
-            //     return 0;geId} not found, try again!");
+                throw new AppleException($"Image {imageId} not found, try again!");
 
             var imageUpdate = await _context.ProductImages
                 .FirstOrDefaultAsync(x => x.id == imageId);
@@ -223,10 +222,26 @@ namespace applestore.Application.Modules.Products {
             return fileName;
         }
 
-        public async Task<ProductSerializer> GetProductById(int productId) {
-            // var product = await _context.Products.FirstOrDefaultAsync(x => x.id == productId);
-            
-            // return product;
+        public async Task<ProductSerializer> GetProductById(int productId, int langualeId) {
+            var product = await _context.Products.FindAsync(productId);
+            var productTranslation = await _context.ProductTranslations
+                .FirstOrDefaultAsync(
+                    x => x.productId == productId && x.languageId == langualeId);
+
+            var productSerializer = new ProductSerializer() {
+                id = product.id,
+                name = productTranslation != null ? productTranslation.name : null,
+                languageId = productTranslation.languageId,
+                brief = productTranslation != null ? productTranslation.brief : null,
+                title = productTranslation != null ? productTranslation.title : null,
+                originalPrice = product.originalPrice,
+                price = product.price,
+                slug = productTranslation != null ? productTranslation.slug : null,
+                inventory = product.inventory,
+                viewCount = product.viewCount
+            };
+
+            return productSerializer;
         }
     }
 }

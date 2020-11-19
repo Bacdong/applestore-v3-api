@@ -25,16 +25,16 @@ namespace applestore.WebApp.Controllers {
             return Ok(products);
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetProductById(int productId) {
-            var product = await _manageProductServices.GetProductById(productId);
+        [HttpGet("{productId}")]
+        public async Task<IActionResult> GetProductById(int productId, int languageId) {
+            var product = await _manageProductServices.GetProductById(productId, languageId);
             if (product == null)
                 return BadRequest("Cannot find product, try again!");
 
             return Ok(product);
         }
 
-        [HttpGet("category")]
+        [HttpGet("category/{productId}")]
         public async Task<IActionResult> Get([FromQuery]ProductPaginationByCategoryIdListSerializer request) {
             var products = await _publicProductServices.CategoryListByIdView(request);
 
@@ -42,14 +42,41 @@ namespace applestore.WebApp.Controllers {
         }
 
         [HttpPost]
-        public async Task<IActionResult> create([FromBody]ProductCreateSerializer request) {
+        public async Task<IActionResult> create([FromForm]ProductCreateSerializer request) {
             var productId = await _manageProductServices.create(request);
             if (productId == 0)
                 return BadRequest();
 
-            var product = await _manageProductServices.GetProductById(productId);
+            var product = await _manageProductServices.GetProductById(productId, request.languageId);
 
             return Created(nameof(GetProductById), product);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> update([FromBody]ProductUpdateSerializer request) {
+            var affectedResult = await _manageProductServices.update(request);
+            if (affectedResult == 0)
+                return BadRequest();
+
+            return Ok();
+        }
+
+        [HttpDelete("{productId}")]
+        public async Task<IActionResult> delete(int productId) {
+            var affectedResult = await _manageProductServices.delete(productId);
+            if (affectedResult == 0)
+                return BadRequest();
+
+            return Ok();
+        }
+
+        [HttpPut("price/{productId}/{newPrice}")]
+        public async Task<IActionResult> PriceUpdate([FromQuery]int productId, decimal newPrice) {
+            var isSuccess = await _manageProductServices.PriceUpdate(productId, newPrice);
+            if (isSuccess)
+                return Ok();
+
+            return BadRequest("Update failed, try again!");
         }
     }
 }
