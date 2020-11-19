@@ -4,12 +4,13 @@
 ### Reference Documentation ###
 - [C-Sharp](https://docs.microsoft.com/en-us/dotnet/csharp/)
 - [ASP.NET Core 3.1](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-3.1)
+- [ASP.NET Core 5.0](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-5.0)
 - [PostgreSQL 12.4](https://www.postgresql.org/docs/)
 
 
 ### Setup Development Enviroments (Linux) ###
-- [SDK Installation](https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#2004-)
-- [Runtime Installation](https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#2004-)
+- [SDK Installation 3.1](https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#2004-)
+- [Runtime Installation 3.1](https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#2004-)
 - Support Enviroments:
 
 ```
