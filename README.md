@@ -4,12 +4,13 @@
 ### Reference Documentation ###
 - [C-Sharp](https://docs.microsoft.com/en-us/dotnet/csharp/)
 - [ASP.NET Core 3.1](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-3.1)
+- [ASP.NET Core 5.0](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-5.0)
 - [PostgreSQL 12.4](https://www.postgresql.org/docs/)
 
 
 ### Setup Development Enviroments (Linux) ###
-- [SDK Installation](https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#2004-)
-- [Runtime Installation](https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#2004-)
+- [SDK Installation 3.1](https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#2004-)
+- [Runtime Installation 3.1](https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#2004-)
 - Support Enviroments:
 
 ```
@@ -30,6 +31,16 @@ sudo apt-get -y install postgresql
 wget -O - https://dbeaver.io/debs/dbeaver.gpg.key | sudo apt-key add -
 echo "deb https://dbeaver.io/debs/dbeaver-ce /" | sudo tee /etc/apt/sources.list.d/dbeaver.list
 sudo apt-get update && sudo apt-get install dbeaver-ce
+```
+
+### ASP.NET Core Update Latest Version ###
+- [ASP.NET Core 5.0](https://docs.microsoft.com/vi-vn/dotnet/core/install/linux-alpine)
+- [dotnet-install.sh](https://dot.net/v1/dotnet-install.sh.)
+```
+chmod +x ./dotnet-install.sh
+./dotnet-install.sh -c Current
+./dotnet-install.sh -c Current --runtime aspnetcore
+./dotnet-install.sh -c 5.0
 ```
 
 
